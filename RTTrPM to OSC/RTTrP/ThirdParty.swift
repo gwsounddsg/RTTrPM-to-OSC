@@ -56,3 +56,24 @@ struct CentroidMod: Packet {
         
     }
 }
+
+
+struct LEDModule: Packet {
+    // Packet
+    let type: uint8
+    let intSig: uint16
+    let fltSig: uint16
+    
+    // LEDModule
+    let size: uint16
+    let latency: uint16
+    let x: Double
+    let y: Double
+    let z: Double
+    let index: uint8
+    
+    
+    func print() {
+        
+    }
+}
