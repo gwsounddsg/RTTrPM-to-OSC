@@ -93,6 +93,28 @@ struct QuatModule: Packet {
     let z: Double
     let w: Double
     
+    
+    func print() {
+        
+    }
+}
+
+
+struct EulerModule: Packet {
+    // Packet
+    let type: uint8
+    let intSig: uint16
+    let fltSig: uint16
+    
+    // EulerModule
+    let size: uint16
+    let latency: uint16
+    let order: uint16
+    let r1: Double
+    let r2: Double
+    let r3: Double
+    
+    
     func print() {
         
     }
