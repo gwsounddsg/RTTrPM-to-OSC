@@ -1,0 +1,6 @@
+framework module Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests {
+  umbrella header "Pods-RTTrPM to OSC-RTTrPM to OSCUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
