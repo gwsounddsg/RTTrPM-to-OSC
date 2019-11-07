@@ -77,3 +77,23 @@ struct LEDModule: Packet {
         
     }
 }
+
+
+struct QuatModule: Packet {
+    // Packet
+    let type: uint8
+    let intSig: uint16
+    let fltSig: uint16
+    
+    //QuatModule
+    let size: uint16
+    let latency: uint16
+    let x: Double
+    let y: Double
+    let z: Double
+    let w: Double
+    
+    func print() {
+        
+    }
+}
