@@ -18,6 +18,11 @@ protocol Packet {
 }
 
 
+struct Coordinates<T>  {
+    let x, y, z: T
+}
+
+
 struct Trackable: Packet {
     // Packet
     let type: uint8
@@ -47,9 +52,7 @@ struct CentroidMod: Packet {
     // Centroid
     let size: uint16
     let latency: uint16
-    let x: Double
-    let y: Double
-    let z: Double
+    let coor: Coordinates<Double>
     
     
     func print() {
@@ -67,9 +70,7 @@ struct LEDModule: Packet {
     // LEDModule
     let size: uint16
     let latency: uint16
-    let x: Double
-    let y: Double
-    let z: Double
+    let coor: Coordinates<Double>
     let index: uint8
     
     
@@ -88,9 +89,7 @@ struct QuatModule: Packet {
     //QuatModule
     let size: uint16
     let latency: uint16
-    let x: Double
-    let y: Double
-    let z: Double
+    let coor: Coordinates<Double>
     let w: Double
     
     
@@ -110,9 +109,30 @@ struct EulerModule: Packet {
     let size: uint16
     let latency: uint16
     let order: uint16
-    let r1: Double
-    let r2: Double
-    let r3: Double
+    let r1, r2, r3: Double
+    
+    
+    func print() {
+        
+    }
+}
+
+
+struct CentroidAccVelMod: Packet {
+    // Packet
+    let type: uint8
+    let intSig: uint16
+    let fltSig: uint16
+    
+    // CentroidAccVelMod
+    struct Acc {
+        let x, y, z: Float
+    }
+    
+    let size: uint16
+    let coor: Coordinates<Double>
+    let acc: Coordinates<Float>
+    let vel: Coordinates<Float>
     
     
     func print() {
