@@ -125,11 +125,27 @@ struct CentroidAccVelMod: Packet {
     let fltSig: uint16
     
     // CentroidAccVelMod
-    struct Acc {
-        let x, y, z: Float
-    }
-    
     let size: uint16
+    let coor: Coordinates<Double>
+    let acc: Coordinates<Float>
+    let vel: Coordinates<Float>
+    
+    
+    func print() {
+        
+    }
+}
+
+
+struct LEDAccVelMod: Packet {
+    // Packet
+    let type: uint8
+    let intSig: uint16
+    let fltSig: uint16
+    
+    // LEDAccVelMod
+    let size: uint16
+    let index: uint8
     let coor: Coordinates<Double>
     let acc: Coordinates<Float>
     let vel: Coordinates<Float>
