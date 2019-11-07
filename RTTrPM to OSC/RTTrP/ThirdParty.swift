@@ -23,6 +23,11 @@ struct Coordinates<T>  {
 }
 
 
+
+// MARK: -
+// MARK: Structures
+// MARK: -
+
 struct Trackable: Packet {
     // Packet
     let type: uint8
