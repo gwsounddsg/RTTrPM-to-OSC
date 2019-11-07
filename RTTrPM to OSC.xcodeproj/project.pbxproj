@@ -11,6 +11,7 @@
 		73D0199C0AD097F3A046EA58 /* Pods_RTTrPM_to_OSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA34ACDF6BFCA9EA2AA9F573 /* Pods_RTTrPM_to_OSC.framework */; };
 		9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C54412374AEA40033D247 /* RTTrP.swift */; };
 		9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */; };
+		9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FED2374B55A001213D3 /* ThirdParty.swift */; };
 		9A8CE1F823688B4F00FA566F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE1F723688B4F00FA566F /* AppDelegate.swift */; };
 		9A8CE1FA23688B4F00FA566F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE1F923688B4F00FA566F /* ViewController.swift */; };
 		9A8CE1FC23688B5000FA566F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE1FB23688B5000FA566F /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		72ED6B9C0A7829E47858F25D /* Pods-RTTrPM to OSCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A1C54412374AEA40033D247 /* RTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrP.swift; sourceTree = "<group>"; };
 		9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM.swift; sourceTree = "<group>"; };
+		9A5D6FED2374B55A001213D3 /* ThirdParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdParty.swift; sourceTree = "<group>"; };
 		9A8CE1F423688B4F00FA566F /* RTTrPM to OSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RTTrPM to OSC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8CE1F723688B4F00FA566F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A8CE1F923688B4F00FA566F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				9A1C54412374AEA40033D247 /* RTTrP.swift */,
 				9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */,
+				9A5D6FED2374B55A001213D3 /* ThirdParty.swift */,
 			);
 			path = RTTrP;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */,
+				9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */,
 				9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */,
 				9A8CE1FA23688B4F00FA566F /* ViewController.swift in Sources */,
 				9A8CE1F823688B4F00FA566F /* AppDelegate.swift in Sources */,
