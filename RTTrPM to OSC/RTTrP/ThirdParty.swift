@@ -134,7 +134,16 @@ struct QuatModule: Packet {
     
     
     func print() {
+        Swift.print("==================Quaternion Module==================")
         
+        Swift.print("Module Size: \(size)")
+        Swift.print("Latency: \(latency)")
+        Swift.print("Qx: \(coor.x)")
+        Swift.print("Qy: \(coor.y)")
+        Swift.print("Qz: \(coor.z)")
+        Swift.print("Qw: \(w)")
+        
+        Swift.print("==================Quaternion Module==================")
     }
 }
 
