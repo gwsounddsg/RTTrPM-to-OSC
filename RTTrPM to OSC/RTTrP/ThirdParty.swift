@@ -106,7 +106,16 @@ struct LEDModule: Packet {
     
     
     func print() {
+        Swift.print("==================LED Module==================")
         
+        Swift.print("Module Size: \(size)")
+        Swift.print("Latency: \(latency)")
+        Swift.print("X Position: \(coor.x)")
+        Swift.print("Y Position: \(coor.y)")
+        Swift.print("Z Position: \(coor.z)")
+        Swift.print("LED Index: \(index)")
+        
+        Swift.print("==================LED Module==================")
     }
 }
 
