@@ -162,7 +162,16 @@ struct EulerModule: Packet {
     
     
     func print() {
+        Swift.print("==================Euler Module==================")
         
+        Swift.print("Module Size: \(size)")
+        Swift.print("Latency: \(latency)")
+        Swift.print("Euler Order: \(order)")
+        Swift.print("R1: \(r1)")
+        Swift.print("R2: \(r2)")
+        Swift.print("R3: \(r3)")
+        
+        Swift.print("==================Euler Module==================")
     }
 }
 
