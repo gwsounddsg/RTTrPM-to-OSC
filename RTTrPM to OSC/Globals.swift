@@ -16,15 +16,7 @@ extension uint32: HexConverter {}
 
 
 /// inserts a print of a UInt8, UInt16, or UInt32 in hex for (eg: 0x3F5B)
-func printHex<T: HexConverter>(_ num: T, bitCount: Int) {
-    switch bitCount {
-    case 8, 16, 32:
-        break
-    default:
-        print("Num Error", terminator: "")
-        return
-    }
-    
+func printHex<T: HexConverter>(_ num: T) {
     let str = String(num, radix: 16, uppercase: true)
     print("0x\(str)", terminator: "")
 }
