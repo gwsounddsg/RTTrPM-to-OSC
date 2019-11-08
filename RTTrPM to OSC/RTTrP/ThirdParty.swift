@@ -43,7 +43,25 @@ struct Trackable: Packet {
 
     
     func print() {
+        Swift.print("==================Trackable Module==================")
         
+        Swift.print("Integer Signature: ", terminator:"")
+        printHex(intSig)
+        Swift.print("")
+        
+        Swift.print("Floating Point Signature: ", terminator:"")
+        printHex(fltSig)
+        Swift.print("")
+        
+        Swift.print("Size: \(size)")
+        Swift.print("Packet Name Length: \(nameLength)")
+        Swift.print("Number of Modules: \(modCount)")
+        
+        Swift.print("Timestamp: ", terminator: "")
+        printHex(timestamp)
+        Swift.print("")
+        
+        Swift.print("==================Trackable Module==================")
     }
 }
 
