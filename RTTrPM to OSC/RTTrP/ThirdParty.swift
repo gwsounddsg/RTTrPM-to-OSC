@@ -190,7 +190,23 @@ struct CentroidAccVelMod: Packet {
     
     
     func print() {
+        Swift.print("======Centroid Acceleration/Velocity Module======")
         
+        Swift.print("Module Size: \(size)")
+        
+        Swift.print("X Position: \(coor.x)")
+        Swift.print("Y Position: \(coor.y)")
+        Swift.print("Z Position: \(coor.z)")
+        
+        Swift.print("X Velocity: \(vel.x)")
+        Swift.print("Y Velocity: \(vel.y)")
+        Swift.print("Z Velocity: \(vel.z)")
+        
+        Swift.print("X Acceleration: \(acc.x)")
+        Swift.print("Y Acceleration: \(acc.y)")
+        Swift.print("Z Acceleration: \(acc.z)")
+        
+        Swift.print("======Centroid Acceleration/Velocity Module======")
     }
 }
 
