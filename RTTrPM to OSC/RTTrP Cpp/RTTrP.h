@@ -63,7 +63,7 @@ class RTTrPL
 		LightingSync *sync;
 
 		RTTrPL();
-		RTTrPL(RTTrPL* toCopy);
+		//RTTrPL(RTTrPL* toCopy);
 		~RTTrPL();
 
 		void printModule(void);

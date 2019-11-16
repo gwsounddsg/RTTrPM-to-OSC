@@ -35,5 +35,16 @@ void destroyMyRTTrPM(MyRTTrPM* trash);
 void printPacket(MyRTTrPM* obj);
 
 
+#pragma mark - RTTrPL
+struct MyRTTrPL;
+typedef struct MyRTTrPL MyRTTrPL;
+
+MyRTTrPL* createPL();
+MyRTTrPL* createFromCopy(MyRTTrPL* toCopy);
+void destoryMyRTTrPL(MyRTTrPL* trash);
+
+void printModule(MyRTTrPL* obj);
+
+
 
 #endif /* wraper_RTTrP_hpp */

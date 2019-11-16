@@ -51,3 +51,29 @@ extern "C++"
         reinterpret_cast<RTTrPM*>(obj)->printPacket();
     }
 }
+
+
+
+
+
+#pragma mark - RTTrPL
+
+extern "C++"
+{
+    MyRTTrPL* createPL() {
+        return reinterpret_cast<MyRTTrPL*>(new RTTrPL());
+    }
+
+    // RTTrPL(RTTrPL* toCopy) is not implemented in protocol
+//    MyRTTrPL* createFromCopy(MyRTTrPL* toCopy) {
+//        return reinterpret_cast<MyRTTrPL*>(new RTTrPL(toCopy));
+//    }
+    
+    void destoryMyRTTrPL(MyRTTrPL* trash) {
+        delete reinterpret_cast<RTTrPL*>(trash);
+    }
+    
+    void printModule(MyRTTrPL* obj) {
+        reinterpret_cast<RTTrPL*>(obj)->printModule();
+    }
+}
