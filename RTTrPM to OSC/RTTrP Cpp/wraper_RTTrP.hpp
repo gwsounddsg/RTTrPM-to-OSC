@@ -29,6 +29,11 @@ void printHeader(MyRTTrP* obj);
 struct MyRTTrPM;
 typedef struct MyRTTrPM MyRTTrPM;
 
+MyRTTrPM* createPM();
+void destroyMyRTTrPM(MyRTTrPM* trash);
+
+void printPacket(MyRTTrPM* obj);
+
 
 
 #endif /* wraper_RTTrP_hpp */

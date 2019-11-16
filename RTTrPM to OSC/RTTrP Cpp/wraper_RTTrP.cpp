@@ -10,6 +10,8 @@
 #include "RTTrP.h"
 
 
+#pragma mark - RTTrP
+
 extern "C++"
 {
     MyRTTrP* createP() {
@@ -26,5 +28,26 @@ extern "C++"
     
     void printHeader(MyRTTrP* obj) {
         reinterpret_cast<RTTrP*>(obj)->printHeader();
+    }
+}
+
+
+
+
+
+#pragma mark - RTTrPM
+
+extern "C++"
+{
+    MyRTTrPM* createPM() {
+        return reinterpret_cast<MyRTTrPM*>(new RTTrPM());
+    }
+    
+    void destroyMyRTTrPM(MyRTTrPM* trash) {
+        delete reinterpret_cast<RTTrPM*>(trash);
+    }
+    
+    void printPacket(MyRTTrPM* obj) {
+        reinterpret_cast<RTTrPM*>(obj)->printPacket();
     }
 }
