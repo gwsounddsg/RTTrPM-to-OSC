@@ -10,7 +10,7 @@
 #define wraper_RTTrP_hpp
 
 #include <stdio.h>
-#include <vector>
+
 
 
 #pragma mark - RTTrP
@@ -18,33 +18,50 @@
 struct MyRTTrP;
 typedef struct MyRTTrP MyRTTrP;
 
-MyRTTrP* createP();
-MyRTTrP* createWithVector(std::vector<unsigned char>* vec);
-void destroyMyRTTrP(MyRTTrP* trash);
+#ifdef __cplusplus
+extern "C" {
+#endif
+    MyRTTrP* createP();
+    MyRTTrP* createWithVector(unsigned char* vec[], int size);
+    void destroyMyRTTrP(MyRTTrP* trash);
 
-void printHeader(MyRTTrP* obj);
+    void printHeader(MyRTTrP* obj);
+#ifdef __cplusplus
+}
+#endif
 
 
 #pragma mark - RTTrPM
 struct MyRTTrPM;
 typedef struct MyRTTrPM MyRTTrPM;
 
-MyRTTrPM* createPM();
-void destroyMyRTTrPM(MyRTTrPM* trash);
+#ifdef __cplusplus
+extern "C" {
+#endif
+    MyRTTrPM* createPM();
+    void destroyMyRTTrPM(MyRTTrPM* trash);
 
-void printPacket(MyRTTrPM* obj);
+    void printPacket(MyRTTrPM* obj);
+#ifdef __cplusplus
+}
+#endif
+
 
 
 #pragma mark - RTTrPL
 struct MyRTTrPL;
 typedef struct MyRTTrPL MyRTTrPL;
 
-MyRTTrPL* createPL();
-MyRTTrPL* createFromCopy(MyRTTrPL* toCopy);
-void destoryMyRTTrPL(MyRTTrPL* trash);
+#ifdef __cplusplus
+extern "C" {
+#endif
+    MyRTTrPL* createPL();
+    MyRTTrPL* createFromCopy(MyRTTrPL* toCopy);
+    void destoryMyRTTrPL(MyRTTrPL* trash);
 
-void printModule(MyRTTrPL* obj);
-
-
+    void printModule(MyRTTrPL* obj);
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* wraper_RTTrP_hpp */
