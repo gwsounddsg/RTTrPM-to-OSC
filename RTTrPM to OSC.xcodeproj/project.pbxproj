@@ -13,6 +13,7 @@
 		9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C54412374AEA40033D247 /* RTTrP.swift */; };
 		9A4546DC237FA3240022A22F /* wraper_RTTrP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A4546DA237FA3240022A22F /* wraper_RTTrP.cpp */; };
 		9A59306B23809AD600261E35 /* libRTTrPLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A59306A23809AD600261E35 /* libRTTrPLib.a */; };
+		9A5930C02380BB4B00261E35 /* wrapper_lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */; };
 		9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */; };
 		9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FED2374B55A001213D3 /* ThirdParty.swift */; };
 		9A8CE1F823688B4F00FA566F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE1F723688B4F00FA566F /* AppDelegate.swift */; };
@@ -62,6 +63,8 @@
 		9A4546DF23808EB30022A22F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		9A59306823809A3800261E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9A59306A23809AD600261E35 /* libRTTrPLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRTTrPLib.a; sourceTree = "<group>"; };
+		9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_lighting.cpp; sourceTree = "<group>"; };
+		9A5930BF2380BB4B00261E35 /* wrapper_lighting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wrapper_lighting.hpp; sourceTree = "<group>"; };
 		9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM.swift; sourceTree = "<group>"; };
 		9A5D6FED2374B55A001213D3 /* ThirdParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdParty.swift; sourceTree = "<group>"; };
 		9A8CE1F423688B4F00FA566F /* RTTrPM to OSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RTTrPM to OSC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,8 @@
 				9A4546DB237FA3240022A22F /* wraper_RTTrP.hpp */,
 				9A4546D3237FA1A70022A22F /* protocol_common.h */,
 				9A4546D4237FA1A70022A22F /* lighting.h */,
+				9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */,
+				9A5930BF2380BB4B00261E35 /* wrapper_lighting.hpp */,
 				9A4546D5237FA1A70022A22F /* thirdParty_motion.h */,
 				9A4546D6237FA2030022A22F /* RTTrPM to OSC-Bridging-Header.h */,
 			);
@@ -461,6 +466,7 @@
 				9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */,
 				9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */,
 				9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */,
+				9A5930C02380BB4B00261E35 /* wrapper_lighting.cpp in Sources */,
 				9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */,
 				9A4546DC237FA3240022A22F /* wraper_RTTrP.cpp in Sources */,
 				9A8CE1FA23688B4F00FA566F /* ViewController.swift in Sources */,

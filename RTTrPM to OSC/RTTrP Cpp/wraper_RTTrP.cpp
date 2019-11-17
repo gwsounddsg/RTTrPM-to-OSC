@@ -15,17 +15,17 @@
 
 using namespace std;
 
-MyRTTrP* createP() {
+MyRTTrP* newP() {
     return reinterpret_cast<MyRTTrP*>(new RTTrP());
 }
 
-MyRTTrP* createWithVector(unsigned char* vec, int size) {
+MyRTTrP* newPWithVector(unsigned char* vec, int size) {
     vector<unsigned char> localVec;
     localVec.assign(vec, vec + size);
     return reinterpret_cast<MyRTTrP*>(new RTTrP(localVec));
 }
 
-void destroyMyRTTrP(MyRTTrP* trash) {
+void destroyP(MyRTTrP* trash) {
     delete reinterpret_cast<RTTrP*>(trash);
 }
 
@@ -40,11 +40,11 @@ void printHeader(MyRTTrP* obj) {
 #pragma mark - RTTrPM
 
 
-MyRTTrPM* createPM() {
+MyRTTrPM* newPM() {
     return reinterpret_cast<MyRTTrPM*>(new RTTrPM());
 }
 
-void destroyMyRTTrPM(MyRTTrPM* trash) {
+void destroyPM(MyRTTrPM* trash) {
     delete reinterpret_cast<RTTrPM*>(trash);
 }
 
@@ -60,7 +60,7 @@ void printPacket(MyRTTrPM* obj) {
 #pragma mark - RTTrPL
 
 
-MyRTTrPL* createPL() {
+MyRTTrPL* newPL() {
     return reinterpret_cast<MyRTTrPL*>(new RTTrPL());
 }
 
@@ -69,7 +69,7 @@ MyRTTrPL* createPL() {
 //        return reinterpret_cast<MyRTTrPL*>(new RTTrPL(toCopy));
 //    }
 
-void destoryMyRTTrPL(MyRTTrPL* trash) {
+void destoryPL(MyRTTrPL* trash) {
     delete reinterpret_cast<RTTrPL*>(trash);
 }
 

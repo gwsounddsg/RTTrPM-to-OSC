@@ -21,9 +21,9 @@ typedef struct MyRTTrP MyRTTrP;
 #ifdef __cplusplus
 extern "C" {
 #endif
-    MyRTTrP* createP();
-    MyRTTrP* createWithVector(unsigned char* vec[], int size);
-    void destroyMyRTTrP(MyRTTrP* trash);
+    MyRTTrP* newP();
+    MyRTTrP* newPWithVector(unsigned char* vec[], int size);
+    void destroyP(MyRTTrP* trash);
 
     void printHeader(MyRTTrP* obj);
 #ifdef __cplusplus
@@ -38,8 +38,8 @@ typedef struct MyRTTrPM MyRTTrPM;
 #ifdef __cplusplus
 extern "C" {
 #endif
-    MyRTTrPM* createPM();
-    void destroyMyRTTrPM(MyRTTrPM* trash);
+    MyRTTrPM* newPM();
+    void destroyPM(MyRTTrPM* trash);
 
     void printPacket(MyRTTrPM* obj);
 #ifdef __cplusplus
@@ -55,9 +55,9 @@ typedef struct MyRTTrPL MyRTTrPL;
 #ifdef __cplusplus
 extern "C" {
 #endif
-    MyRTTrPL* createPL();
-    MyRTTrPL* createFromCopy(MyRTTrPL* toCopy);
-    void destoryMyRTTrPL(MyRTTrPL* trash);
+    MyRTTrPL* newPL();
+    //MyRTTrPL* newPLFrom(MyRTTrPL* toCopy);
+    void destoryPL(MyRTTrPL* trash);
 
     void printModule(MyRTTrPL* obj);
 #ifdef __cplusplus
