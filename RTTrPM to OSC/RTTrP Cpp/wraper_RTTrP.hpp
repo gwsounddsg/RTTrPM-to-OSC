@@ -22,7 +22,7 @@ typedef struct MyRTTrP MyRTTrP;
 extern "C" {
 #endif
     MyRTTrP* newP();
-    MyRTTrP* newPWithVector(unsigned char* vec[], int size);
+    MyRTTrP* newPWithVector(unsigned char* vec, int size);
     void destroyP(MyRTTrP* trash);
 
     void printHeader(MyRTTrP* obj);
