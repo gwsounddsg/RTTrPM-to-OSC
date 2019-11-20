@@ -26,7 +26,7 @@ extern "C" {
 #endif
     
     MyChannelBlock* newChannelBlock();
-    MyChannelBlock* newChannelBlockWith(unsigned char* vec, my_uint16 intSig, my_uint16 fltSig);
+    MyChannelBlock* newChannelBlockWith(unsigned char* vec, int vecSize, my_uint16 intSig, my_uint16 fltSig);
     void destroyChannelBlock(MyChannelBlock* trash);
     
     void channelBlock_chanOffset(MyChannelBlock* obj, my_uint16 val);
@@ -56,7 +56,7 @@ extern "C" {
 #endif
     
     MySpot* newSpot();
-    MySpot* newSpotWith(unsigned char* vec, my_uint16 intSig, my_uint16 fltSig);
+    MySpot* newSpotWith(unsigned char* vec, int vecSize, my_uint16 intSig, my_uint16 fltSig);
     void destroySpot(MySpot* trash);
     
     void spot_size(MySpot* obj, my_uint16 val);
@@ -69,7 +69,7 @@ extern "C" {
     my_uint16 getSpotID(MySpot* obj);
     my_uint16 getSpotOffset(MySpot* obj);
     my_uint16 getSpotChannelStruct(MySpot* obj);
-    MyChannelBlock* getSpotChanBlocks(MySpot* obj);
+    unsigned long int getSpotChanBlocks(MySpot* obj, MyChannelBlock blocks[]);
     
     void printSpot(MySpot* obj);
     
@@ -96,12 +96,13 @@ extern "C" {
     void universe_size(MyUniverse* obj, my_uint16 val);
     void universe_id(MyUniverse* obj, my_uint16 val);
     void universe_numSpots(MyUniverse* obj, my_uint16 val);
-    void universe_spotList(MyUniverse* obj, MySpot*);
+    void universe_spotList(MyUniverse* obj, MySpot* list, int listSize);
     
     my_uint16 getUniverseSize(MyUniverse* obj);
     my_uint16 getUniverseID(MyUniverse* obj);
     my_uint16 getUniverseNumSpots(MyUniverse* obj);
-    MySpot* getUniverseSpotList(MyUniverse* obj);
+    unsigned long int getUniverseSpotListSize(MyUniverse* obj);
+    void getUniverseSpotList(MyUniverse* obj, MySpot* spotList);
     
     void printUniverse(MyUniverse* obj);
     
