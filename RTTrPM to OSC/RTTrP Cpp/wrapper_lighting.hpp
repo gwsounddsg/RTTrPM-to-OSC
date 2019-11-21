@@ -12,9 +12,11 @@
 #include <stdio.h>
 
 
+#ifndef MYTYPES
 typedef unsigned short int my_uint16;
 typedef unsigned char my_uint8;
 typedef unsigned int my_uint32;
+#endif
 
 
 #pragma mark - ChannelBlock
