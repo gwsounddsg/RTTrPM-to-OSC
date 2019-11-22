@@ -30,7 +30,7 @@ extern "C" {
     
     MyPacket* newPacket();
     MyPacket* newPacketWith(my_uint16 intSig, my_uint16 fltSig, unsigned char* data);
-    MyPacket* copyPacket(const MyPacket &toCopy);
+    MyPacket* copyPacket(const MyPacket* toCopy);
     void destoryPacket(MyPacket* trash);
     
     void packet_pkType(MyPacket* obj, my_uint8 type);
@@ -59,7 +59,7 @@ extern "C" {
     
     MyTrackable* newTrackable();
     MyTrackable* newTrackableWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig);
-    MyTrackable* copyTrackable(const Trackable &toCopy);
+    MyTrackable* copyTrackable(const Trackable* toCopy);
     void destroyTrackable(MyTrackable* trash);
     
     void trackable_timeStamp(MyTrackable* obj, my_uint32 val);
@@ -94,7 +94,7 @@ extern "C" {
     
     MyCentroidMod* newCentroidMod();
     MyCentroidMod* newCentroidModWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig);
-    MyCentroidMod* copyCentroidMod(const MyCentroidMod &toCopy);
+    MyCentroidMod* copyCentroidMod(const MyCentroidMod* toCopy);
     void destroyCentroidMod(MyCentroidMod* trash);
     
     void centroidMod_size(MyCentroidMod* obj, my_uint16 val);
@@ -129,7 +129,7 @@ extern "C" {
     
     MyLEDModule* newLEDModule();
     MyLEDModule* newLEDModuleWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig);
-    MyLEDModule* copyLEDModule(MyLEDModule &toCopy);
+    MyLEDModule* copyLEDModule(MyLEDModule* toCopy);
     void destroyLEDModule(MyLEDModule* trash);
     
     void ledModule_size(MyLEDModule* obj, my_uint16 val);
@@ -166,7 +166,7 @@ extern "C" {
     
     MyQuatModule* newQuatModule();
     MyQuatModule* newQuatModuleWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig);
-    MyQuatModule* copyQuatModule(const MyQuatModule &toCopy);
+    MyQuatModule* copyQuatModule(const MyQuatModule* toCopy);
     void destroyQuatModule(MyQuatModule* trash);
     
     void quatModule_size(MyQuatModule* obj, my_uint16 val);
@@ -203,7 +203,7 @@ extern "C" {
     
     MyEulerModule* newEulerModule();
     MyEulerModule* newEulerModuleWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig);
-    MyEulerModule* copyEulerModule(const MyEulerModule &toCopy);
+    MyEulerModule* copyEulerModule(const MyEulerModule* toCopy);
     void destroyEulerModule(MyEulerModule* trash);
     
     void eulerModule_size(MyEulerModule* obj, my_uint16 val);
@@ -240,7 +240,7 @@ extern "C" {
     
     MyCentroidAccVelMod* newCentroidAccVelMod();
     MyCentroidAccVelMod* newCentroidAccVelModWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig);
-    MyCentroidAccVelMod* copyCentroidAccVelMod(MyCentroidAccVelMod &toCopy);
+    MyCentroidAccVelMod* copyCentroidAccVelMod(MyCentroidAccVelMod* toCopy);
     void destroyCentroidAccVelMod(MyCentroidAccVelMod* trash);
     
     void centroidAccVelMod_size(MyCentroidAccVelMod* obj, my_uint16 val);
@@ -285,7 +285,7 @@ extern "C" {
     
     MyLEDAccVelMod* newLEDAccVelMod();
     MyLEDAccVelMod* newLEDAccVelModWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig);
-    MyLEDAccVelMod* copyLEDAccVelMod(MyLEDAccVelMod &toCopy);
+    MyLEDAccVelMod* copyLEDAccVelMod(MyLEDAccVelMod* toCopy);
     void destroyLEDAccVelMod(MyLEDAccVelMod* trash);
     
     void ledAccVelMod_size(MyLEDAccVelMod* obj, my_uint16 val);
