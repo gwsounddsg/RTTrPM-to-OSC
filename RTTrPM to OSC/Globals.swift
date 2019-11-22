@@ -20,3 +20,17 @@ func printHex<T: HexConverter>(_ num: T) {
     let str = String(num, radix: 16, uppercase: true)
     print("0x\(str)", terminator: "")
 }
+
+
+
+let testdebug = true
+func logging(_ msg: String, shiftRight: Int = 0) {
+    if testdebug {
+        var shift = shiftRight
+        while shift > 0 {
+            print("|\t", terminator: "")
+            shift -= 1
+        }
+        print(msg)
+    }
+}
