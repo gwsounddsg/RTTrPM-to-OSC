@@ -16,7 +16,6 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var incoming: Incoming?
-    var server: EchoServer?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         do {
