@@ -646,12 +646,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 659690036E8C044725F04E90 /* Pods-RTTrPM to OSC.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "RTTrPM to OSC/RTTrPM_to_OSC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BlueSocket/Socket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftOSC/SwiftOSC.framework/Headers\"",
+				);
 				INFOPLIST_FILE = "RTTrPM to OSC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,6 +674,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -674,12 +682,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 024CA0BF726156C8F57AF012 /* Pods-RTTrPM to OSC.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "RTTrPM to OSC/RTTrPM_to_OSC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BlueSocket/Socket.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftOSC/SwiftOSC.framework/Headers\"",
+				);
 				INFOPLIST_FILE = "RTTrPM to OSC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -694,6 +709,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "RTTrPM to OSC/RTTrP Cpp/RTTrPM to OSC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Release;
 		};
