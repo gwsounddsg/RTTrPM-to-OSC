@@ -7,6 +7,7 @@ target 'RTTrPM to OSC' do
   # Pods for RTTrPM to OSC
   pod 'SwiftOSC', '~> 1.3'
   pod 'BlueSocket', '~> 1.0.50'
+  pod 'Socket.swift', '~> 2.4.0'
 
   target 'RTTrPM to OSCTests' do
     inherit! :search_paths

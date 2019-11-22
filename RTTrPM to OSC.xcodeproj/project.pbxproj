@@ -13,6 +13,7 @@
 		9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BEDDC2376110A00819BFD /* Globals.swift */; };
 		9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C54412374AEA40033D247 /* RTTrP.swift */; };
 		9A4546DC237FA3240022A22F /* wraper_RTTrP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A4546DA237FA3240022A22F /* wraper_RTTrP.cpp */; };
+		9A5714682388511C00650FC2 /* IncomingRTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5714672388511C00650FC2 /* IncomingRTTrP.swift */; };
 		9A59306B23809AD600261E35 /* libRTTrPLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A59306A23809AD600261E35 /* libRTTrPLib.a */; };
 		9A5930C02380BB4B00261E35 /* wrapper_lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */; };
 		9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */; };
@@ -64,6 +65,7 @@
 		9A4546DB237FA3240022A22F /* wraper_RTTrP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wraper_RTTrP.hpp; sourceTree = "<group>"; };
 		9A4546DD23807D530022A22F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9A4546DF23808EB30022A22F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		9A5714672388511C00650FC2 /* IncomingRTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRTTrP.swift; sourceTree = "<group>"; };
 		9A59306823809A3800261E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9A59306A23809AD600261E35 /* libRTTrPLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRTTrPLib.a; sourceTree = "<group>"; };
 		9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_lighting.cpp; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				9A8CE1F723688B4F00FA566F /* AppDelegate.swift */,
 				9A8CE1F923688B4F00FA566F /* ViewController.swift */,
 				9A1BEDDC2376110A00819BFD /* Globals.swift */,
+				9A5714672388511C00650FC2 /* IncomingRTTrP.swift */,
 				9A5D6FEC2374B524001213D3 /* RTTrP */,
 				9A4546D1237FA1A70022A22F /* RTTrP Cpp */,
 				9A8CE1FB23688B5000FA566F /* Assets.xcassets */,
@@ -472,6 +475,7 @@
 				9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */,
 				9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */,
 				9A5930C02380BB4B00261E35 /* wrapper_lighting.cpp in Sources */,
+				9A5714682388511C00650FC2 /* IncomingRTTrP.swift in Sources */,
 				9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */,
 				9A4546DC237FA3240022A22F /* wraper_RTTrP.cpp in Sources */,
 				9A0D2C302386DE360046282D /* wrapper_thirdPartyMotion.cpp in Sources */,
