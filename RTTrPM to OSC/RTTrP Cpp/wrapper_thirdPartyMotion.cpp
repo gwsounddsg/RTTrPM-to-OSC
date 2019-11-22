@@ -7,6 +7,7 @@
 //
 
 #include "wrapper_thirdPartyMotion.hpp"
+#include "thirdParty_motion.h"
 
 
 #pragma mark - MyPacket
@@ -74,7 +75,7 @@ MyTrackable* newTrackableWith(unsigned char* data, my_uint16 intSig, my_uint16 f
     return newTrackable();
 }
 
-MyTrackable* copyTrackable(const Trackable* toCopy) {
+MyTrackable* copyTrackable(const MyTrackable* toCopy) {
     Trackable *newObj = new Trackable();
     newObj->timeStamp = reinterpret_cast<const Trackable*>(toCopy)->timeStamp;
     newObj->size = reinterpret_cast<const Trackable*>(toCopy)->size;
@@ -106,7 +107,7 @@ void trackable_numMods(MyTrackable* obj, my_uint8 val) {
     reinterpret_cast<Trackable*>(obj)->numMods = val;
 }
 
-void trackable_name(MyTrackable* obj, std::string val) {
+void trackable_name(MyTrackable* obj, const char* val) {
     reinterpret_cast<Trackable*>(obj)->name = val;
 }
 
@@ -127,9 +128,9 @@ my_uint8 getTrackableNumMods(MyTrackable* obj) {
     return reinterpret_cast<Trackable*>(obj)->numMods;
 }
 
-void getTrackableName(MyTrackable* obj, std::string* name) {
+void getTrackableName(MyTrackable* obj, const char* name) {
     std::string localName = reinterpret_cast<Trackable*>(obj)->name;
-    name = &localName;
+    name = localName.c_str();
 }
 
 
@@ -148,7 +149,7 @@ MyCentroidMod* newCentroidMod() {
 }
 
 #warning second MyCentroidMod constructor is broken
-MyCentroidMod* newCentroidModWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig) {
+MyCentroidMod* newCentroidModWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig) {
     return newCentroidMod();
 }
 
@@ -225,7 +226,7 @@ MyLEDModule* newLEDModule() {
 }
 
 #warning second MyLEDModule constructor broken
-MyLEDModule* newLEDModuleWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig) {
+MyLEDModule* newLEDModuleWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig) {
     return newLEDModule();
 }
 
@@ -311,7 +312,7 @@ MyQuatModule* newQuatModule() {
 }
 
 #warning second MyQuatModule constructor is broken
-MyQuatModule* newQuatModuleWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig) {
+MyQuatModule* newQuatModuleWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig) {
     return newQuatModule();
 }
 
@@ -397,7 +398,7 @@ MyEulerModule* newEulerModule() {
 }
 
 #warning second MyEulerModule is broken
-MyEulerModule* newEulerModuleWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig) {
+MyEulerModule* newEulerModuleWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig) {
     return newEulerModule();
 }
 
@@ -483,7 +484,7 @@ MyCentroidAccVelMod* newCentroidAccVelMod() {
 }
 
 #warning second MyCentroidAccVelMod is broken
-MyCentroidAccVelMod* newCentroidAccVelModWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig) {
+MyCentroidAccVelMod* newCentroidAccVelModWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig) {
     return newCentroidAccVelMod();
 }
 
@@ -605,7 +606,7 @@ MyLEDAccVelMod* newLEDAccVelMod() {
 }
 
 #warning second MyLEDAccVelMod is broken
-MyLEDAccVelMod* newLEDAccVelModWith(std::vector<unsigned char>* data, my_uint16 intSig, my_uint16 fltSig) {
+MyLEDAccVelMod* newLEDAccVelModWith(unsigned char* data, my_uint16 intSig, my_uint16 fltSig) {
     return newLEDAccVelMod();
 }
 

@@ -71,7 +71,7 @@ extern "C" {
     my_uint16 getSpotID(MySpot* obj);
     my_uint16 getSpotOffset(MySpot* obj);
     my_uint16 getSpotChannelStruct(MySpot* obj);
-    unsigned long int getSpotChanBlocks(MySpot* obj, MyChannelBlock blocks[]);
+    unsigned long int getSpotChanBlocks(MySpot* obj, MyChannelBlock* blocks);
     
     void printSpot(MySpot* obj);
     
