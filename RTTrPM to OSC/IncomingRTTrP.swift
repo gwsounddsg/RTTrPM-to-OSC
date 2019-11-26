@@ -76,37 +76,56 @@ extension Incoming: GCDAsyncUdpSocketDelegate {
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?)
     {
-        var sock: sockaddr_in?
-        sock = address.withUnsafeBytes {$0.load(as: sockaddr_in.self)}
         
         logging("Delegate did receive data")
-        if sock == nil {
-            logging("failed to get addy info", shiftRight: 1)
+        
+        let addyAndPort = getAddyAndPort(address)
+        
+        if addyAndPort.0 == "" {
+            logging("Failed to get address info", shiftRight: 1)
+            return
         }
-        else {
-            
-            /*
-             Most of this code found here:
-            https://stackoverflow.com/questions/29294491/swift-obtaining-ip-address-from-socket-returns-weird-value
-             */
+        
+        logging(addyAndPort.0, shiftRight: 1)
+        logging("Port: \(addyAndPort.1)", shiftRight: 1)
+    }
+    
+    
+    /*
+     Most of this code found here:
+     https://stackoverflow.com/questions/29294491/swift-obtaining-ip-address-from-socket-returns-weird-value
+     */
+    private func getAddyAndPort(_ data: Data) -> (String, Int) {
+        var sock: sockaddr_in?
+        var addy: String = ""
+        var port: Int = 0
+        
+        sock = data.withUnsafeBytes {$0.load(as: sockaddr_in.self)}
+        
+        if sock != nil {
             switch Int32(sock!.sin_family) {
             case AF_INET: // ipv4
                 let length = Int(INET_ADDRSTRLEN) + 2
                 var buffer = [CChar](_unsafeUninitializedCapacity: length, initializingWith: {_, _ in})
                 let hostCString = inet_ntop(AF_INET, &sock!.sin_addr, &buffer, socklen_t(length))
-                let port = Int(UInt16(sock!.sin_port).byteSwapped)
                 
-                let fromAddy = String(cString: hostCString!)
-                logging("Address: \(fromAddy)", shiftRight: 1)
-                logging("Port: \(port)", shiftRight: 1)
+                addy = "Address IPv4: \(String(cString: hostCString!))"
+                port = Int(UInt16(sock!.sin_port).byteSwapped)
                 
-            case AF_INET6:
-                print("ipv6")
+            case AF_INET6: // ipv6
+                var sock6 = data.withUnsafeBytes {$0.load(as: sockaddr_in6.self)}
+                let length = Int(INET6_ADDRSTRLEN) + 2
+                var buffer = [CChar](_unsafeUninitializedCapacity: length, initializingWith: {_, _ in})
+                let hostCString = inet_ntop(AF_INET6, &sock6.sin6_addr, &buffer, socklen_t(length))
                 
-            default:
-                logging("something else", shiftRight: 1)
+                addy = "Address IPv6: \(String(cString: hostCString!))"
+                port = Int(UInt16(sock6.sin6_port).byteSwapped)
+            
+            default: break
             }
         }
+        
+        return (addy, port)
     }
     
     
