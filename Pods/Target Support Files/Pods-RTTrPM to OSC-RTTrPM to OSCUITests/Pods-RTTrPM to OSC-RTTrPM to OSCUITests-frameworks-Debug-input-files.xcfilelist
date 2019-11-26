@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC-RTTrPM to OSCUITests/Pods-RTTrPM to OSC-RTTrPM to OSCUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
 ${BUILT_PRODUCTS_DIR}/Socket.swift/SocketSwift.framework
 ${BUILT_PRODUCTS_DIR}/SwiftOSC/SwiftOSC.framework

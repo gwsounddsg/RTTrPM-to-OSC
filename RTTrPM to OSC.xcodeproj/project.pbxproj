@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0ADB30FB9EA797DDDC80EF3E /* Pods_RTTrPM_to_OSCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1657617B686155CC95FB6E36 /* Pods_RTTrPM_to_OSCTests.framework */; };
-		0F20577F2A706B0A1A1603AC /* Pods_RTTrPM_to_OSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCF923052DF9FA916F42957 /* Pods_RTTrPM_to_OSC.framework */; };
-		6E870D15E3CBD01EF36A3AC1 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C15BE5CCA73FC281AEED166 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */; };
 		9A0D2C302386DE360046282D /* wrapper_thirdPartyMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D2C2E2386DE360046282D /* wrapper_thirdPartyMotion.cpp */; };
 		9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BEDDC2376110A00819BFD /* Globals.swift */; };
 		9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C54412374AEA40033D247 /* RTTrP.swift */; };
@@ -25,6 +22,9 @@
 		9A8CE1FF23688B5000FA566F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE1FD23688B5000FA566F /* Main.storyboard */; };
 		9A8CE20B23688B5000FA566F /* RTTrPM_to_OSCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE20A23688B5000FA566F /* RTTrPM_to_OSCTests.swift */; };
 		9A8CE21623688B5000FA566F /* RTTrPM_to_OSCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE21523688B5000FA566F /* RTTrPM_to_OSCUITests.swift */; };
+		9BCBA67D8AA1F6BB04BA2CD7 /* Pods_RTTrPM_to_OSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE5A1C42F48EACC6DABE687 /* Pods_RTTrPM_to_OSC.framework */; };
+		BC09FB97B195C3B6B0D63A89 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DF94A58C977D9022BED4CE /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */; };
+		E0CF1905F4C56492BA7C3A52 /* Pods_RTTrPM_to_OSCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B6F0941EE23F23B43BB55B /* Pods_RTTrPM_to_OSCTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,12 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C15BE5CCA73FC281AEED166 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1657617B686155CC95FB6E36 /* Pods_RTTrPM_to_OSCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FD15717F94E4D1FBCBE198B /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC-RTTrPM to OSCUITests/Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6BDE8D228905A81A2FD6B738 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC-RTTrPM to OSCUITests/Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig"; sourceTree = "<group>"; };
-		8153C8D6F10E92BCB01FA380 /* Pods-RTTrPM to OSC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC.debug.xcconfig"; sourceTree = "<group>"; };
-		93C9E9058CF69C8164F9F884 /* Pods-RTTrPM to OSC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC.release.xcconfig"; sourceTree = "<group>"; };
+		17DF94A58C977D9022BED4CE /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF510631AC6BAE4A29F1E0F /* Pods-RTTrPM to OSC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC.debug.xcconfig"; sourceTree = "<group>"; };
+		3F3DB73DFD2DBCE548C59CD8 /* Pods-RTTrPM to OSCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A0D2C2E2386DE360046282D /* wrapper_thirdPartyMotion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_thirdPartyMotion.cpp; sourceTree = "<group>"; };
 		9A0D2C2F2386DE360046282D /* wrapper_thirdPartyMotion.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wrapper_thirdPartyMotion.hpp; sourceTree = "<group>"; };
 		9A1BEDDC2376110A00819BFD /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -85,9 +82,13 @@
 		9A8CE21123688B5000FA566F /* RTTrPM to OSCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RTTrPM to OSCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8CE21523688B5000FA566F /* RTTrPM_to_OSCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM_to_OSCUITests.swift; sourceTree = "<group>"; };
 		9A8CE21723688B5000FA566F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE60F66BEE84B16A952907CC /* Pods-RTTrPM to OSCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C1825D851A4426CBEC10F4C5 /* Pods-RTTrPM to OSCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.release.xcconfig"; sourceTree = "<group>"; };
-		CBCF923052DF9FA916F42957 /* Pods_RTTrPM_to_OSC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AB67F22238C2DD00090EE54 /* RTTrPM to OSC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RTTrPM to OSC.entitlements"; sourceTree = "<group>"; };
+		A36DFCBFFBCC13AD0F56A2B7 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC-RTTrPM to OSCUITests/Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5B6F0941EE23F23B43BB55B /* Pods_RTTrPM_to_OSCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBACF786626AB0E825622DC0 /* Pods-RTTrPM to OSC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC.release.xcconfig"; sourceTree = "<group>"; };
+		C66C054E3B3365E12D8E5560 /* Pods-RTTrPM to OSCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.release.xcconfig"; sourceTree = "<group>"; };
+		DFE5A1C42F48EACC6DABE687 /* Pods_RTTrPM_to_OSC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44215402304D0E7B2CB38CF /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC-RTTrPM to OSCUITests/Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A59306B23809AD600261E35 /* libRTTrPLib.a in Frameworks */,
-				0F20577F2A706B0A1A1603AC /* Pods_RTTrPM_to_OSC.framework in Frameworks */,
+				9BCBA67D8AA1F6BB04BA2CD7 /* Pods_RTTrPM_to_OSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ADB30FB9EA797DDDC80EF3E /* Pods_RTTrPM_to_OSCTests.framework in Frameworks */,
+				E0CF1905F4C56492BA7C3A52 /* Pods_RTTrPM_to_OSCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E870D15E3CBD01EF36A3AC1 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework in Frameworks */,
+				BC09FB97B195C3B6B0D63A89 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,9 +128,9 @@
 				9A4546DF23808EB30022A22F /* libc++.1.tbd */,
 				9A4546DD23807D530022A22F /* libc++.tbd */,
 				9A4546CB237FA1060022A22F /* rttrpLib.a */,
-				CBCF923052DF9FA916F42957 /* Pods_RTTrPM_to_OSC.framework */,
-				0C15BE5CCA73FC281AEED166 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */,
-				1657617B686155CC95FB6E36 /* Pods_RTTrPM_to_OSCTests.framework */,
+				DFE5A1C42F48EACC6DABE687 /* Pods_RTTrPM_to_OSC.framework */,
+				17DF94A58C977D9022BED4CE /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */,
+				B5B6F0941EE23F23B43BB55B /* Pods_RTTrPM_to_OSCTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,12 +138,12 @@
 		8D1B462FDF7A37A6C964A687 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8153C8D6F10E92BCB01FA380 /* Pods-RTTrPM to OSC.debug.xcconfig */,
-				93C9E9058CF69C8164F9F884 /* Pods-RTTrPM to OSC.release.xcconfig */,
-				2FD15717F94E4D1FBCBE198B /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */,
-				6BDE8D228905A81A2FD6B738 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig */,
-				AE60F66BEE84B16A952907CC /* Pods-RTTrPM to OSCTests.debug.xcconfig */,
-				C1825D851A4426CBEC10F4C5 /* Pods-RTTrPM to OSCTests.release.xcconfig */,
+				1DF510631AC6BAE4A29F1E0F /* Pods-RTTrPM to OSC.debug.xcconfig */,
+				BBACF786626AB0E825622DC0 /* Pods-RTTrPM to OSC.release.xcconfig */,
+				A36DFCBFFBCC13AD0F56A2B7 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */,
+				F44215402304D0E7B2CB38CF /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig */,
+				3F3DB73DFD2DBCE548C59CD8 /* Pods-RTTrPM to OSCTests.debug.xcconfig */,
+				C66C054E3B3365E12D8E5560 /* Pods-RTTrPM to OSCTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -209,6 +210,7 @@
 				9A8CE1FB23688B5000FA566F /* Assets.xcassets */,
 				9A8CE1FD23688B5000FA566F /* Main.storyboard */,
 				9A8CE20023688B5000FA566F /* Info.plist */,
+				9AB67F22238C2DD00090EE54 /* RTTrPM to OSC.entitlements */,
 				9A8CE20123688B5000FA566F /* RTTrPM_to_OSC.entitlements */,
 			);
 			path = "RTTrPM to OSC";
@@ -239,11 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A8CE21A23688B5000FA566F /* Build configuration list for PBXNativeTarget "RTTrPM to OSC" */;
 			buildPhases = (
-				577A318A11318DE52BA47A9B /* [CP] Check Pods Manifest.lock */,
+				DC5988346B360C138848FFB5 /* [CP] Check Pods Manifest.lock */,
 				9A8CE1F023688B4F00FA566F /* Sources */,
 				9A8CE1F123688B4F00FA566F /* Frameworks */,
 				9A8CE1F223688B4F00FA566F /* Resources */,
-				59B7B49855E0159A675619BA /* [CP] Embed Pods Frameworks */,
+				88FBB80F4A93EB5EB1115BE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,7 +260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A8CE21D23688B5000FA566F /* Build configuration list for PBXNativeTarget "RTTrPM to OSCTests" */;
 			buildPhases = (
-				65E09377D08E5A96825D4FE2 /* [CP] Check Pods Manifest.lock */,
+				E6512881385B6155F7B6CD03 /* [CP] Check Pods Manifest.lock */,
 				9A8CE20223688B5000FA566F /* Sources */,
 				9A8CE20323688B5000FA566F /* Frameworks */,
 				9A8CE20423688B5000FA566F /* Resources */,
@@ -277,11 +279,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A8CE22023688B5000FA566F /* Build configuration list for PBXNativeTarget "RTTrPM to OSCUITests" */;
 			buildPhases = (
-				3EB9226030263ADCFA312FBA /* [CP] Check Pods Manifest.lock */,
+				1DB1B0C514DD0472829DF298 /* [CP] Check Pods Manifest.lock */,
 				9A8CE20D23688B5000FA566F /* Sources */,
 				9A8CE20E23688B5000FA566F /* Frameworks */,
 				9A8CE20F23688B5000FA566F /* Resources */,
-				FBC05AF303D4D4BA60403ED0 /* [CP] Embed Pods Frameworks */,
+				E9C50486642CC82B19048CBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,6 +308,11 @@
 					9A8CE1F323688B4F00FA566F = {
 						CreatedOnToolsVersion = 10.3;
 						LastSwiftMigration = 1030;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					9A8CE20523688B5000FA566F = {
 						CreatedOnToolsVersion = 10.3;
@@ -364,7 +371,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EB9226030263ADCFA312FBA /* [CP] Check Pods Manifest.lock */ = {
+		1DB1B0C514DD0472829DF298 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,7 +393,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		577A318A11318DE52BA47A9B /* [CP] Check Pods Manifest.lock */ = {
+		88FBB80F4A93EB5EB1115BE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC5988346B360C138848FFB5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,24 +432,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		59B7B49855E0159A675619BA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		65E09377D08E5A96825D4FE2 /* [CP] Check Pods Manifest.lock */ = {
+		E6512881385B6155F7B6CD03 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,7 +454,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FBC05AF303D4D4BA60403ED0 /* [CP] Embed Pods Frameworks */ = {
+		E9C50486642CC82B19048CBD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -648,12 +655,12 @@
 		};
 		9A8CE21B23688B5000FA566F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8153C8D6F10E92BCB01FA380 /* Pods-RTTrPM to OSC.debug.xcconfig */;
+			baseConfigurationReference = 1DF510631AC6BAE4A29F1E0F /* Pods-RTTrPM to OSC.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "RTTrPM to OSC/RTTrPM_to_OSC.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "RTTrPM to OSC/RTTrPM to OSC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = automatic;
@@ -684,12 +691,12 @@
 		};
 		9A8CE21C23688B5000FA566F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93C9E9058CF69C8164F9F884 /* Pods-RTTrPM to OSC.release.xcconfig */;
+			baseConfigurationReference = BBACF786626AB0E825622DC0 /* Pods-RTTrPM to OSC.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "RTTrPM to OSC/RTTrPM_to_OSC.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "RTTrPM to OSC/RTTrPM to OSC.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = automatic;
@@ -719,7 +726,7 @@
 		};
 		9A8CE21E23688B5000FA566F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE60F66BEE84B16A952907CC /* Pods-RTTrPM to OSCTests.debug.xcconfig */;
+			baseConfigurationReference = 3F3DB73DFD2DBCE548C59CD8 /* Pods-RTTrPM to OSCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -740,7 +747,7 @@
 		};
 		9A8CE21F23688B5000FA566F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1825D851A4426CBEC10F4C5 /* Pods-RTTrPM to OSCTests.release.xcconfig */;
+			baseConfigurationReference = C66C054E3B3365E12D8E5560 /* Pods-RTTrPM to OSCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -761,7 +768,7 @@
 		};
 		9A8CE22123688B5000FA566F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FD15717F94E4D1FBCBE198B /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */;
+			baseConfigurationReference = A36DFCBFFBCC13AD0F56A2B7 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -781,7 +788,7 @@
 		};
 		9A8CE22223688B5000FA566F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BDE8D228905A81A2FD6B738 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig */;
+			baseConfigurationReference = F44215402304D0E7B2CB38CF /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

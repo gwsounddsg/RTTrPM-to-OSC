@@ -10,18 +10,37 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    var incoming: Incoming?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        incoming = Incoming()
+        logging("Incoming completed init!!!")
     }
 
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
 
-
+    
+    @IBAction func connect(_ sender: Any) {
+        do {
+            try incoming!.connect(port: 24002)
+        } catch {
+            logging(error.localizedDescription)
+            return
+        }
+    }
+    
+    
+    @IBAction func query(_ sender: Any) {
+        logging("Local address: \(incoming!.localAddress())")
+        logging("Local port: \(incoming!.localPort())")
+    }
 }
 
