@@ -11,34 +11,128 @@ import Foundation
 
 
 
-class RTTrP {
-    let headerInt: uint16
-    let headerFloat: uint16
-    let version: uint16
-    let packetID: uint32
-    let packetFormat: uint8
-    let size: uint16
-    let context: uint32
-    let modCount: uint8
-    let data: [CUnsignedChar]
+enum RTTrPErr: Error {
+    case dataNotLargeEnoughToInit
+    case badValueFor_intSig, badValueFor_fltSig
+    case badValueFor_packetFormat
+}
+
+
+
+
+enum RTTrP_Desc {
+    enum intSig {
+        case bigEndian, littleEndian
+    }
     
+    enum fltSig {
+        case bigEndianPL, bigEndianPM, littleEndianPL, littleEndianPM
+    }
     
-    init(intHeader: uint16, fltHeader: uint16, version: uint16, pID: uint32, pForm: uint8, pktSize: uint16, context: uint32, numMods: uint8, data: [CUnsignedChar]) {
-        self.headerInt = intHeader
-        self.headerFloat = fltHeader
-        self.version = version
-        self.packetID = pID
-        self.packetFormat = pForm
-        self.size = pktSize
-        self.context = context
-        self.modCount = numMods
-        self.data = data
+    enum packetFormat {
+        case raw, protobuf, thrift
     }
 }
 
 
+
+
+struct RTTrP {
+    let intSig: RTTrP_Desc.intSig
+    let fltSig: RTTrP_Desc.fltSig
+    let version: UInt16
+    let packetID: UInt32
+    let packetFormat: RTTrP_Desc.packetFormat
+    let size: UInt16
+    let context: UInt32
+    let modCount: UInt8
+//    let data: [CUnsignedChar]
+    
+    
+    init(data: [UInt8]) throws {
+        if data.count < 18 {throw RTTrPErr.dataNotLargeEnoughToInit}
+        
+        var array = data
+        
+        // Header / Integer Signature - 2 bytes
+        let headerIntSig: UInt16 = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        switch headerIntSig {
+        case 0x4154:
+            intSig = .bigEndian
+        case 0x5441:
+            intSig = .littleEndian
+        default:
+            throw RTTrPErr.badValueFor_intSig
+        }
+        
+        // Header / Float Signature - 2 bytes
+        let headerFltSig: UInt16 = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        switch headerFltSig {
+        case 0x4434:
+            fltSig = .bigEndianPL
+        case 0x4334:
+            fltSig = .bigEndianPM
+        case 0x3444:
+            fltSig = .littleEndianPL
+        case 0x3443:
+            fltSig = .littleEndianPM
+        default:
+            throw RTTrPErr.badValueFor_fltSig
+        }
+        
+        // Header Version - 2 bytes
+        version = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // Packet ID - 4 bytes
+        packetID = try integerWithBytes([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // Packet Format - 1 byte
+        switch array[0] {
+        case 0x00:
+            packetFormat = .raw
+        case 0x01:
+            packetFormat = .protobuf
+        case 0x02:
+            packetFormat = .thrift
+        default:
+            throw RTTrPErr.badValueFor_packetFormat
+        }
+        array.removeFirst()
+        
+        // Size of packets - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // Context (user definable) - 4 bytes
+        context = try integerWithBytes([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // Number of packet modules - 1 byte
+        modCount = data[0]
+        array.removeFirst()
+    }
+}
+
+
+
+
+
 extension RTTrP {
     func printHeader() {
+        if !testdebug {return}
         
+        logging("======== RTTrP Packet ========")
+        logging("\(intSig)", shiftRight: 1)
+        logging("\(fltSig)", shiftRight: 1)
+        logging("Version: \(version)", shiftRight: 1)
+        logging("PacketID: \(packetID)", shiftRight: 1)
+        logging("\(packetFormat)", shiftRight: 1)
+        logging("Size: \(size)", shiftRight: 1)
+        logging("Module Packet Count: \(modCount)", shiftRight: 1)
+        print("==============================\n")
     }
 }

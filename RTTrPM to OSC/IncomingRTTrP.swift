@@ -21,6 +21,18 @@ enum IncomingErrors: Error {
 
 
 
+extension Data {
+    var bytes: [UInt8] {return [UInt8](self)}
+}
+
+extension Array where Element == UInt8 {
+    var data: Data {return Data(self)}
+}
+
+
+
+
+
 class Incoming: NSObject {
     
     var socket: GCDAsyncUdpSocket?
@@ -41,6 +53,8 @@ class Incoming: NSObject {
         
     }
 }
+
+
 
 
 
@@ -77,8 +91,20 @@ extension Incoming: GCDAsyncUdpSocketDelegate {
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?)
     {
         
-        logging("Delegate did receive data")
+        logging("Delegate did receive data: ")
         
+        do {
+            let packet = try RTTrP(data: data.bytes)
+            packet.printHeader()
+            logging("\(data.bytes)")
+        }
+        catch {
+            logging(error.localizedDescription, shiftRight: 1)
+        }
+    }
+    
+    
+    private func logAddress(_ address: Data) {
         let addyAndPort = getAddyAndPort(address)
         
         if addyAndPort.0 == "" {

@@ -34,3 +34,31 @@ func logging(_ msg: String, shiftRight: Int = 0) {
         print(msg)
     }
 }
+
+
+
+
+
+enum GWErr: Error {
+    case badByteCountForReturnType
+}
+/**
+ - This function takes in an array of UInt8's and returns a single integer combining the array.
+ - Example result from [0x00, 0x00, 0x00, 0x01] == UInt32(1), [0xFF, 0xFF] == UInt16(65535)
+ - Returns optional because you could pass only 3 bytes for a UInt32 which wouldn't work
+ 
+ ## Usage
+ - let val: UInt32? = integerWithBytes([0x32, 0x51, 0x00, 0x09])
+ 
+ - Parameter bytes: Any array of UIn8's
+*/
+func integerWithBytes<T: BinaryInteger> (_ bytes: [UInt8]) throws -> T {
+    if bytes.count != MemoryLayout<T>.size {throw GWErr.badByteCountForReturnType}
+    
+    var result: T = 0
+    for byte in bytes {
+        result = result << 8 | T(byte)
+    }
+    
+    return result
+}
