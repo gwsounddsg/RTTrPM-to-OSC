@@ -11,6 +11,11 @@ import Foundation
 
 
 
+let HeaderSize = 18
+
+
+
+
 enum RTTrPErr: Error {
     case dataNotLargeEnoughToInit
     case badValueFor_intSig, badValueFor_fltSig
@@ -46,11 +51,11 @@ struct RTTrP {
     let size: UInt16
     let context: UInt32
     let modCount: UInt8
-//    let data: [CUnsignedChar]
+    var pmPackets: [RTTrPM] = []
     
     
     init(data: [UInt8]) throws {
-        if data.count < 18 {throw RTTrPErr.dataNotLargeEnoughToInit}
+        if data.count < HeaderSize {throw RTTrPErr.dataNotLargeEnoughToInit}
         
         var array = data
         
@@ -112,8 +117,13 @@ struct RTTrP {
         array.removeSubrange(0...3)
         
         // Number of packet modules - 1 byte
-        modCount = data[0]
+        modCount = array[0]
         array.removeFirst()
+        
+        // populate trackable modules
+        if fltSig == .bigEndianPM || fltSig == .littleEndianPM {
+            populatePM(array)
+        }
     }
 }
 
@@ -122,6 +132,26 @@ struct RTTrP {
 
 
 extension RTTrP {
+    
+    mutating func populatePM(_ data: [UInt8]) {
+        var array = data
+        var counter = array.count
+        
+        while array.count > 0 {
+            do {
+                let newPM = try RTTrPM(&array)
+                pmPackets.append(newPM)
+                counter = array.count
+            }
+            catch {
+                logging(error.localizedDescription, shiftRight: 1)
+            }
+            
+            if array.count == 0 || array.count == counter {break}
+        }
+    }
+    
+    
     func printHeader() {
         if !testdebug {return}
         
@@ -133,6 +163,9 @@ extension RTTrP {
         logging("\(packetFormat)", shiftRight: 1)
         logging("Size: \(size)", shiftRight: 1)
         logging("Module Packet Count: \(modCount)", shiftRight: 1)
+        
+        for each in pmPackets {each.print()}
+        
         print("==============================\n")
     }
 }

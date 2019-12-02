@@ -10,49 +10,48 @@ import Foundation
 
 
 
-class RTTrPM {
-    let header: RTTrP
+
+
+enum RTTrP_PacketModules: UInt8 {
+    case trackable = 0x01
+    case trackableWithTimestamp = 0x51
+    case centroidPosition = 0x02
+    case orientationQuaternion = 0x03
+    case orientationEuler = 0x04
+    case trackedPointPosition = 0x06
+    case centroidAccVel = 0x20
+    case trackedPointAccVel = 0x21
+    case zoneCollisionDetection = 0x22
+    
+    case unknown = 0xFF
+}
+
+
+
+
+
+struct RTTrPM {
     var trackable: Trackable?
-    var centroidMod: CentroidMod?
-    var ledModules: [LEDModule]
-    var quatModule: QuatModule?
-    var eulerModule: EulerModule?
-    var centroidAccVelMod: CentroidAccVelMod?
-    var lavMods: [LEDAccVelMod]
-    
-    var data: [CUnsignedChar]
-    var pkType: [uint8]
     
     
-    /// Inits blank RTTrPM with only the header
-    init(_ header: RTTrP) {
-        self.header = header
+    init(_ array: inout [UInt8]) throws {
+        let module: RTTrP_PacketModules = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
         
-        ledModules = []
-        lavMods = []
-        data = []
-        pkType = []
+        switch module {
+        case .trackable, .trackableWithTimestamp:
+            trackable = try Trackable(&array)
+        case .unknown:
+            logging("Error: UInt8 value: \(array[0])", shiftRight: 2)
+            fallthrough
+        default:
+            return
+        }
     }
 }
 
 
 extension RTTrPM {
     func print() {
-        header.printHeader()
-        
         if trackable != nil         {trackable!.print()}
-        if centroidMod != nil       {centroidMod!.print()}
-        if quatModule != nil        {quatModule!.print()}
-        if eulerModule != nil       {eulerModule!.print()}
-        if centroidAccVelMod != nil  {centroidAccVelMod!.print()}
-        
-        for mod in ledModules       {mod.print()}
-        for mod in lavMods          {mod.print()}
-        
-        for d in data              {Swift.print(d, terminator: "")}
-        Swift.print()
-        
-        for type in pkType          {Swift.print(type, terminator: "")}
-        Swift.print()
     }
 }

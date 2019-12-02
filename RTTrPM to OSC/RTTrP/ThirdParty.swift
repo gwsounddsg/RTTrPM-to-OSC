@@ -9,13 +9,29 @@
 import Foundation
 
 
+
+
+
 protocol Packet {
-    var type: uint8 {get}
-    var intSig: uint16 {get} // not sure what this is for
-    var fltSig: uint16 {get} // not sure what this is for
+    var type: RTTrP_PacketModules {get}
     
     func print()
 }
+
+
+
+
+enum PacketError: Error {
+    case cannotCreateStringForName
+    case typeShouldBeTrackable
+    
+    enum ByteCountTooSmallToInit: Error {
+        case trackable
+    }
+}
+
+
+
 
 
 struct Coordinates<T>  {
@@ -30,9 +46,7 @@ struct Coordinates<T>  {
 
 struct Trackable: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules
     
     // Trackable
     let size: uint16
@@ -40,37 +54,80 @@ struct Trackable: Packet {
     let name: String
     let modCount: uint8
     let timestamp: uint32
+    
+    var centroidMod: CentroidMod?
+    var ledModules: [LEDModule] = []
+    var quatModule: QuatModule?
+    var eulerModule: EulerModule?
+    var centroidAccVelMod: CentroidAccVelMod?
+    var lavMods: [LEDAccVelMod] = []
+    
+    
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 6 {throw PacketError.ByteCountTooSmallToInit.trackable}
+        
+        // Type - 1 byte
+        type = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
+        array.removeFirst()
+        
+        // Size - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // Name Length - 1 byte
+        nameLength = array[0]
+        array.removeFirst()
+//TODO: check size of data before continuing
+        
+        // Name - UTF8
+        let nameRange = 0..<Int(nameLength)
+        guard let str = String(bytes: array[nameRange], encoding: .utf8) else {
+            throw PacketError.cannotCreateStringForName
+        }
+        name = str
+        array.removeSubrange(nameRange)
+        
+        // Timestamp - 4 bytes
+        if type == .trackableWithTimestamp {
+            timestamp = try integerWithBytes([array[0], array[1], array[2], array[3]])
+            array.removeSubrange(0...3)
+        }
+        else {
+            timestamp = 0
+        }
+        
+        // Number of packet modules - 1 byte
+        modCount = array[0]
+        array.removeFirst()
+        
+        //
+    }
+    
+    
+    
 
     
     func print() {
-        Swift.print("==================Trackable Module==================")
+       logging("==================Trackable Module==================", shiftRight: 2)
         
-        Swift.print("Integer Signature: ", terminator:"")
-        printHex(intSig)
-        Swift.print("")
+        logging("Size: \(size)", shiftRight: 2)
+        logging("Packet Name Length: \(nameLength)", shiftRight: 2)
+        logging("Name: \(name)", shiftRight: 2)
+        logging("Number of Modules: \(modCount)", shiftRight: 2)
         
-        Swift.print("Floating Point Signature: ", terminator:"")
-        printHex(fltSig)
-        Swift.print("")
+        if type == .trackableWithTimestamp {logging("Timestamp: ", shiftRight: 2)}
         
-        Swift.print("Size: \(size)")
-        Swift.print("Packet Name Length: \(nameLength)")
-        Swift.print("Number of Modules: \(modCount)")
-        
-        Swift.print("Timestamp: ", terminator: "")
-        printHex(timestamp)
-        Swift.print("")
-        
-        Swift.print("==================Trackable Module==================")
+        logging("==================Trackable Module==================", shiftRight: 2)
     }
 }
 
 
+
+
+
 struct CentroidMod: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules = .centroidPosition
     
     // Centroid
     let size: uint16
@@ -92,11 +149,12 @@ struct CentroidMod: Packet {
 }
 
 
+
+
+
 struct LEDModule: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules
     
     // LEDModule
     let size: uint16
@@ -120,11 +178,12 @@ struct LEDModule: Packet {
 }
 
 
+
+
+
 struct QuatModule: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules = .orientationQuaternion
     
     //QuatModule
     let size: uint16
@@ -148,11 +207,12 @@ struct QuatModule: Packet {
 }
 
 
+
+
+
 struct EulerModule: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules = .orientationEuler
     
     // EulerModule
     let size: uint16
@@ -176,11 +236,12 @@ struct EulerModule: Packet {
 }
 
 
+
+
+
 struct CentroidAccVelMod: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules = .centroidAccVel
     
     // CentroidAccVelMod
     let size: uint16
@@ -211,11 +272,12 @@ struct CentroidAccVelMod: Packet {
 }
 
 
+
+
+
 struct LEDAccVelMod: Packet {
     // Packet
-    let type: uint8
-    let intSig: uint16
-    let fltSig: uint16
+    let type: RTTrP_PacketModules
     
     // LEDAccVelMod
     let size: uint16

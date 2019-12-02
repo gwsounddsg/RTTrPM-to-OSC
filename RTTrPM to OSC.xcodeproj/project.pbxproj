@@ -20,8 +20,10 @@
 		9A8CE1FA23688B4F00FA566F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE1F923688B4F00FA566F /* ViewController.swift */; };
 		9A8CE1FC23688B5000FA566F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE1FB23688B5000FA566F /* Assets.xcassets */; };
 		9A8CE1FF23688B5000FA566F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8CE1FD23688B5000FA566F /* Main.storyboard */; };
-		9A8CE20B23688B5000FA566F /* RTTrPM_to_OSCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE20A23688B5000FA566F /* RTTrPM_to_OSCTests.swift */; };
 		9A8CE21623688B5000FA566F /* RTTrPM_to_OSCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE21523688B5000FA566F /* RTTrPM_to_OSCUITests.swift */; };
+		9ADA9D492395581C00C8DD32 /* RTTrP_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA9D482395581C00C8DD32 /* RTTrP_Tests.swift */; };
+		9ADA9D4B239560AD00C8DD32 /* RTTrPM_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA9D4A239560AD00C8DD32 /* RTTrPM_Tests.swift */; };
+		9ADA9D4D239562D100C8DD32 /* Trackable_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADA9D4C239562D100C8DD32 /* Trackable_Tests.swift */; };
 		9BCBA67D8AA1F6BB04BA2CD7 /* Pods_RTTrPM_to_OSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE5A1C42F48EACC6DABE687 /* Pods_RTTrPM_to_OSC.framework */; };
 		BC09FB97B195C3B6B0D63A89 /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DF94A58C977D9022BED4CE /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */; };
 		E0CF1905F4C56492BA7C3A52 /* Pods_RTTrPM_to_OSCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B6F0941EE23F23B43BB55B /* Pods_RTTrPM_to_OSCTests.framework */; };
@@ -77,12 +79,14 @@
 		9A8CE20023688B5000FA566F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8CE20123688B5000FA566F /* RTTrPM_to_OSC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RTTrPM_to_OSC.entitlements; sourceTree = "<group>"; };
 		9A8CE20623688B5000FA566F /* RTTrPM to OSCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RTTrPM to OSCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A8CE20A23688B5000FA566F /* RTTrPM_to_OSCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM_to_OSCTests.swift; sourceTree = "<group>"; };
 		9A8CE20C23688B5000FA566F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8CE21123688B5000FA566F /* RTTrPM to OSCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RTTrPM to OSCUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8CE21523688B5000FA566F /* RTTrPM_to_OSCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM_to_OSCUITests.swift; sourceTree = "<group>"; };
 		9A8CE21723688B5000FA566F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB67F22238C2DD00090EE54 /* RTTrPM to OSC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RTTrPM to OSC.entitlements"; sourceTree = "<group>"; };
+		9ADA9D482395581C00C8DD32 /* RTTrP_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrP_Tests.swift; sourceTree = "<group>"; };
+		9ADA9D4A239560AD00C8DD32 /* RTTrPM_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM_Tests.swift; sourceTree = "<group>"; };
+		9ADA9D4C239562D100C8DD32 /* Trackable_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackable_Tests.swift; sourceTree = "<group>"; };
 		A36DFCBFFBCC13AD0F56A2B7 /* Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC-RTTrPM to OSCUITests/Pods-RTTrPM to OSC-RTTrPM to OSCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5B6F0941EE23F23B43BB55B /* Pods_RTTrPM_to_OSCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBACF786626AB0E825622DC0 /* Pods-RTTrPM to OSC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC.release.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,7 +223,9 @@
 		9A8CE20923688B5000FA566F /* RTTrPM to OSCTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A8CE20A23688B5000FA566F /* RTTrPM_to_OSCTests.swift */,
+				9ADA9D482395581C00C8DD32 /* RTTrP_Tests.swift */,
+				9ADA9D4A239560AD00C8DD32 /* RTTrPM_Tests.swift */,
+				9ADA9D4C239562D100C8DD32 /* Trackable_Tests.swift */,
 				9A8CE20C23688B5000FA566F /* Info.plist */,
 			);
 			path = "RTTrPM to OSCTests";
@@ -495,7 +501,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A8CE20B23688B5000FA566F /* RTTrPM_to_OSCTests.swift in Sources */,
+				9ADA9D4D239562D100C8DD32 /* Trackable_Tests.swift in Sources */,
+				9ADA9D4B239560AD00C8DD32 /* RTTrPM_Tests.swift in Sources */,
+				9ADA9D492395581C00C8DD32 /* RTTrP_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

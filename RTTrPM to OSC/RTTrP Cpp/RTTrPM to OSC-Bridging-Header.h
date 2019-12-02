@@ -3,6 +3,6 @@
 //
 
 
-#include "wraper_RTTrP.hpp"
-#include "wrapper_lighting.hpp"
-#include "wrapper_thirdPartyMotion.hpp"
+//#include "wraper_RTTrP.hpp"
+//#include "wrapper_lighting.hpp"
+//#include "wrapper_thirdPartyMotion.hpp"

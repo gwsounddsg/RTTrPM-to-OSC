@@ -96,7 +96,6 @@ extension Incoming: GCDAsyncUdpSocketDelegate {
         do {
             let packet = try RTTrP(data: data.bytes)
             packet.printHeader()
-            logging("\(data.bytes)")
         }
         catch {
             logging(error.localizedDescription, shiftRight: 1)
