@@ -42,6 +42,7 @@ func logging(_ msg: String, shiftRight: Int = 0) {
 enum GWErr: Error {
     case badByteCountForReturnType
 }
+
 /**
  - This function takes in an array of UInt8's and returns a single integer combining the array.
  - Example result from [0x00, 0x00, 0x00, 0x01] == UInt32(1), [0xFF, 0xFF] == UInt16(65535)
@@ -61,4 +62,18 @@ func integerWithBytes<T: BinaryInteger> (_ bytes: [UInt8]) throws -> T {
     }
     
     return result
+}
+
+
+extension FloatingPoint {
+    
+    init(_ bytes: [UInt8]) throws {
+        
+        guard bytes.count == MemoryLayout<Self>.size else {throw GWErr.badByteCountForReturnType}
+        
+        self = bytes.withUnsafeBytes {
+            
+            return $0.load(fromByteOffset: 0, as: Self.self)
+        }
+    }
 }

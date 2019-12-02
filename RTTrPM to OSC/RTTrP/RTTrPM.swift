@@ -35,7 +35,7 @@ struct RTTrPM {
     
     
     init(_ array: inout [UInt8]) throws {
-        let module: RTTrP_PacketModules = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
+        let module = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
         
         switch module {
         case .trackable, .trackableWithTimestamp:
