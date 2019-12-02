@@ -99,13 +99,8 @@ struct Trackable: Packet {
         // Number of packet modules - 1 byte
         modCount = array[0]
         array.removeFirst()
-        
-        //
     }
     
-    
-    
-
     
     func print() {
        logging("==================Trackable Module==================", shiftRight: 2)
