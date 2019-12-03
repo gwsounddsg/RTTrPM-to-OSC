@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A0D2C302386DE360046282D /* wrapper_thirdPartyMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D2C2E2386DE360046282D /* wrapper_thirdPartyMotion.cpp */; };
 		9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BEDDC2376110A00819BFD /* Globals.swift */; };
 		9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C54412374AEA40033D247 /* RTTrP.swift */; };
-		9A4546DC237FA3240022A22F /* wraper_RTTrP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A4546DA237FA3240022A22F /* wraper_RTTrP.cpp */; };
 		9A5714682388511C00650FC2 /* IncomingRTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5714672388511C00650FC2 /* IncomingRTTrP.swift */; };
-		9A59306B23809AD600261E35 /* libRTTrPLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A59306A23809AD600261E35 /* libRTTrPLib.a */; };
-		9A5930C02380BB4B00261E35 /* wrapper_lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */; };
 		9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */; };
 		9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FED2374B55A001213D3 /* ThirdParty.swift */; };
 		9A8CE1F823688B4F00FA566F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CE1F723688B4F00FA566F /* AppDelegate.swift */; };
@@ -50,25 +46,14 @@
 		17DF94A58C977D9022BED4CE /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF510631AC6BAE4A29F1E0F /* Pods-RTTrPM to OSC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSC.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSC/Pods-RTTrPM to OSC.debug.xcconfig"; sourceTree = "<group>"; };
 		3F3DB73DFD2DBCE548C59CD8 /* Pods-RTTrPM to OSCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9A0D2C2E2386DE360046282D /* wrapper_thirdPartyMotion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_thirdPartyMotion.cpp; sourceTree = "<group>"; };
-		9A0D2C2F2386DE360046282D /* wrapper_thirdPartyMotion.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wrapper_thirdPartyMotion.hpp; sourceTree = "<group>"; };
 		9A1BEDDC2376110A00819BFD /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		9A1C54412374AEA40033D247 /* RTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrP.swift; sourceTree = "<group>"; };
 		9A4546CB237FA1060022A22F /* rttrpLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = rttrpLib.a; path = "../Clones/RTTrP-v1.8.7/C++/rttrpLib.a"; sourceTree = "<group>"; };
-		9A4546D2237FA1A70022A22F /* RTTrP.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = RTTrP.h; sourceTree = "<group>"; };
-		9A4546D3237FA1A70022A22F /* protocol_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = protocol_common.h; sourceTree = "<group>"; };
-		9A4546D4237FA1A70022A22F /* lighting.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = lighting.h; sourceTree = "<group>"; };
-		9A4546D5237FA1A70022A22F /* thirdParty_motion.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = thirdParty_motion.h; sourceTree = "<group>"; };
-		9A4546D6237FA2030022A22F /* RTTrPM to OSC-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = "RTTrPM to OSC-Bridging-Header.h"; sourceTree = "<group>"; };
-		9A4546DA237FA3240022A22F /* wraper_RTTrP.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wraper_RTTrP.cpp; sourceTree = "<group>"; };
-		9A4546DB237FA3240022A22F /* wraper_RTTrP.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wraper_RTTrP.hpp; sourceTree = "<group>"; };
 		9A4546DD23807D530022A22F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9A4546DF23808EB30022A22F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		9A5714672388511C00650FC2 /* IncomingRTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRTTrP.swift; sourceTree = "<group>"; };
 		9A59306823809A3800261E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9A59306A23809AD600261E35 /* libRTTrPLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRTTrPLib.a; sourceTree = "<group>"; };
-		9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper_lighting.cpp; sourceTree = "<group>"; };
-		9A5930BF2380BB4B00261E35 /* wrapper_lighting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wrapper_lighting.hpp; sourceTree = "<group>"; };
 		9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM.swift; sourceTree = "<group>"; };
 		9A5D6FED2374B55A001213D3 /* ThirdParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdParty.swift; sourceTree = "<group>"; };
 		9A8CE1F423688B4F00FA566F /* RTTrPM to OSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RTTrPM to OSC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A59306B23809AD600261E35 /* libRTTrPLib.a in Frameworks */,
 				9BCBA67D8AA1F6BB04BA2CD7 /* Pods_RTTrPM_to_OSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,24 +136,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9A4546D1237FA1A70022A22F /* RTTrP Cpp */ = {
-			isa = PBXGroup;
-			children = (
-				9A4546D2237FA1A70022A22F /* RTTrP.h */,
-				9A4546DA237FA3240022A22F /* wraper_RTTrP.cpp */,
-				9A4546DB237FA3240022A22F /* wraper_RTTrP.hpp */,
-				9A4546D3237FA1A70022A22F /* protocol_common.h */,
-				9A4546D4237FA1A70022A22F /* lighting.h */,
-				9A5930BE2380BB4B00261E35 /* wrapper_lighting.cpp */,
-				9A5930BF2380BB4B00261E35 /* wrapper_lighting.hpp */,
-				9A4546D5237FA1A70022A22F /* thirdParty_motion.h */,
-				9A0D2C2E2386DE360046282D /* wrapper_thirdPartyMotion.cpp */,
-				9A0D2C2F2386DE360046282D /* wrapper_thirdPartyMotion.hpp */,
-				9A4546D6237FA2030022A22F /* RTTrPM to OSC-Bridging-Header.h */,
-			);
-			path = "RTTrP Cpp";
-			sourceTree = "<group>";
-		};
 		9A5D6FEC2374B524001213D3 /* RTTrP */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +176,6 @@
 				9A1BEDDC2376110A00819BFD /* Globals.swift */,
 				9A5714672388511C00650FC2 /* IncomingRTTrP.swift */,
 				9A5D6FEC2374B524001213D3 /* RTTrP */,
-				9A4546D1237FA1A70022A22F /* RTTrP Cpp */,
 				9A8CE1FB23688B5000FA566F /* Assets.xcassets */,
 				9A8CE1FD23688B5000FA566F /* Main.storyboard */,
 				9A8CE20023688B5000FA566F /* Info.plist */,
@@ -487,11 +452,8 @@
 				9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */,
 				9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */,
 				9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */,
-				9A5930C02380BB4B00261E35 /* wrapper_lighting.cpp in Sources */,
 				9A5714682388511C00650FC2 /* IncomingRTTrP.swift in Sources */,
 				9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */,
-				9A4546DC237FA3240022A22F /* wraper_RTTrP.cpp in Sources */,
-				9A0D2C302386DE360046282D /* wrapper_thirdPartyMotion.cpp in Sources */,
 				9A8CE1FA23688B4F00FA566F /* ViewController.swift in Sources */,
 				9A8CE1F823688B4F00FA566F /* AppDelegate.swift in Sources */,
 			);
@@ -689,7 +651,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "feld.RTTrPM-to-OSC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RTTrPM to OSC/RTTrP Cpp/RTTrPM to OSC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -725,7 +687,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "feld.RTTrPM-to-OSC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RTTrPM to OSC/RTTrP Cpp/RTTrPM to OSC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = NO;

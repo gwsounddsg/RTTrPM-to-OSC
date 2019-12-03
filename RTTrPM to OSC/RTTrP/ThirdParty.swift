@@ -22,6 +22,7 @@ protocol Packet {
 
 
 
+
 enum PacketError: Error {
     case cannotCreateStringForName
     case typeShouldBeTrackable
