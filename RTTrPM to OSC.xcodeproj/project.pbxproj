@@ -48,12 +48,8 @@
 		3F3DB73DFD2DBCE548C59CD8 /* Pods-RTTrPM to OSCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A1BEDDC2376110A00819BFD /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		9A1C54412374AEA40033D247 /* RTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrP.swift; sourceTree = "<group>"; };
-		9A4546CB237FA1060022A22F /* rttrpLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = rttrpLib.a; path = "../Clones/RTTrP-v1.8.7/C++/rttrpLib.a"; sourceTree = "<group>"; };
-		9A4546DD23807D530022A22F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		9A4546DF23808EB30022A22F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		9A5714672388511C00650FC2 /* IncomingRTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRTTrP.swift; sourceTree = "<group>"; };
 		9A59306823809A3800261E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		9A59306A23809AD600261E35 /* libRTTrPLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRTTrPLib.a; sourceTree = "<group>"; };
 		9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM.swift; sourceTree = "<group>"; };
 		9A5D6FED2374B55A001213D3 /* ThirdParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdParty.swift; sourceTree = "<group>"; };
 		9A8CE1F423688B4F00FA566F /* RTTrPM to OSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RTTrPM to OSC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,11 +107,7 @@
 		23A2D1578BDBB12AEA98D75E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A59306A23809AD600261E35 /* libRTTrPLib.a */,
 				9A59306823809A3800261E35 /* README.md */,
-				9A4546DF23808EB30022A22F /* libc++.1.tbd */,
-				9A4546DD23807D530022A22F /* libc++.tbd */,
-				9A4546CB237FA1060022A22F /* rttrpLib.a */,
 				DFE5A1C42F48EACC6DABE687 /* Pods_RTTrPM_to_OSC.framework */,
 				17DF94A58C977D9022BED4CE /* Pods_RTTrPM_to_OSC_RTTrPM_to_OSCUITests.framework */,
 				B5B6F0941EE23F23B43BB55B /* Pods_RTTrPM_to_OSCTests.framework */,
