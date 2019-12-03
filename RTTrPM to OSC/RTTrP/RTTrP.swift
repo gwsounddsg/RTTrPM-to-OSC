@@ -43,6 +43,7 @@ enum RTTrP_Desc {
 
 
 struct RTTrP {
+    
     let intSig: RTTrP_Desc.intSig
     let fltSig: RTTrP_Desc.fltSig
     let version: UInt16
@@ -122,7 +123,11 @@ struct RTTrP {
         
         // populate trackable modules
         if fltSig == .bigEndianPM || fltSig == .littleEndianPM {
-            populatePM(array)
+            populatePM(&array)
+        }
+        
+        if !array.isEmpty {
+            logging("Finshed with \(array.count) bytes remaining")
         }
     }
 }
@@ -133,8 +138,7 @@ struct RTTrP {
 
 extension RTTrP {
     
-    mutating func populatePM(_ data: [UInt8]) {
-        var array = data
+    mutating func populatePM(_ array: inout [UInt8]) {
         var counter = array.count
         
         while array.count > 0 {

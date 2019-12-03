@@ -15,6 +15,7 @@ import Foundation
 protocol Packet {
     var type: RTTrP_PacketModules {get}
     
+//    init(_ array: inout [UInt8]) throws
     func print()
 }
 
@@ -24,9 +25,18 @@ protocol Packet {
 enum PacketError: Error {
     case cannotCreateStringForName
     case typeShouldBeTrackable
+    case badUInt8Val
     
     enum ByteCountTooSmallToInit: Error {
         case trackable
+        case trackableWithTimestamp
+        case centroidPosition
+        case orientationQuaternion
+        case orientationEuler
+        case trackedPointPosition
+        case centroidAccVel
+        case trackedPointAccVel
+        case zoneCollisionDetection
     }
 }
 
@@ -56,11 +66,11 @@ struct Trackable: Packet {
     let timestamp: uint32
     
     var centroidMod: CentroidMod?
-    var ledModules: [LEDModule] = []
+    var trackedPointMods: [TrackedPointMod] = []
     var quatModule: QuatModule?
     var eulerModule: EulerModule?
     var centroidAccVelMod: CentroidAccVelMod?
-    var lavMods: [LEDAccVelMod] = []
+    var trackedPointAccVelMods: [TrackedPointAccVelMod] = []
     
     
     init(_ array: inout [UInt8]) throws {
@@ -99,6 +109,31 @@ struct Trackable: Packet {
         // Number of packet modules - 1 byte
         modCount = array[0]
         array.removeFirst()
+        
+        // build sub modules
+        try buildSubModules(&array)
+    }
+    
+    
+    mutating func buildSubModules(_ array: inout [UInt8]) throws {
+        if array.isEmpty {return}
+        
+        let module = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
+        array.removeFirst()
+        
+        switch module {
+        case .trackable, .trackableWithTimestamp:
+            return
+        case .centroidAccVel:
+            centroidAccVelMod = try CentroidAccVelMod(&array)
+        case .trackedPointAccVel:
+            trackedPointAccVelMods.append(try TrackedPointAccVelMod(&array))
+        default:
+            logging("Error: UInt8 value: \(array[0])", shiftRight: 2)
+            throw PacketError.badUInt8Val
+        }
+        
+        try buildSubModules(&array)
     }
     
     
@@ -130,6 +165,33 @@ struct CentroidMod: Packet {
     let coor: Coordinates<Double>
     
     
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 28 {throw PacketError.ByteCountTooSmallToInit.centroidPosition}
+        
+        // Size - 2 byte
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // Latency - 2 bytes
+        latency = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // X - 8 bytes
+        let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // Y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // Z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        coor = Coordinates<Double>(x: x, y: y, z: z)
+    }
+    
+    
     func print() {
         Swift.print("==================Centroid Module==================")
         
@@ -147,7 +209,7 @@ struct CentroidMod: Packet {
 
 
 
-struct LEDModule: Packet {
+struct TrackedPointMod: Packet {
     // Packet
     let type: RTTrP_PacketModules
     
@@ -245,6 +307,57 @@ struct CentroidAccVelMod: Packet {
     let vel: Coordinates<Float>
     
     
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 50 {throw PacketError.ByteCountTooSmallToInit.centroidAccVel}
+        
+        // size - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // X - 8 bytes
+        let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // Y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // Z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        coor = Coordinates<Double>(x: x, y: y, z: z)
+        
+        // AccX - 4 bytes
+        var x2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // AccY - 4 bytes
+        var y2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // AccZ - 4 bytes
+        var z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        acc = Coordinates<Float>(x: x2, y: y2, z: z2)
+        
+        // VelX - 4 bytes
+        x2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // VelY - 4 bytes
+        y2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // VelZ - 4 bytes
+        z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        vel = Coordinates<Float>(x: x2, y: y2, z: z2)
+    }
+    
+    
     func print() {
         Swift.print("======Centroid Acceleration/Velocity Module======")
         
@@ -270,9 +383,9 @@ struct CentroidAccVelMod: Packet {
 
 
 
-struct LEDAccVelMod: Packet {
+struct TrackedPointAccVelMod: Packet {
     // Packet
-    let type: RTTrP_PacketModules
+    let type: RTTrP_PacketModules = .trackedPointAccVel
     
     // LEDAccVelMod
     let size: uint16
@@ -280,6 +393,61 @@ struct LEDAccVelMod: Packet {
     let coor: Coordinates<Double>
     let acc: Coordinates<Float>
     let vel: Coordinates<Float>
+    
+    
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 51 {throw PacketError.ByteCountTooSmallToInit.trackedPointAccVel}
+        
+        // size - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // X - 8 bytes
+        let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // Y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // Z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        coor = Coordinates<Double>(x: x, y: y, z: z)
+        
+        // AccX - 4 bytes
+        var x2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // AccY - 4 bytes
+        var y2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // AccZ - 4 bytes
+        var z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        acc = Coordinates<Float>(x: x2, y: y2, z: z2)
+        
+        // VelX - 4 bytes
+        x2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // VelY - 4 bytes
+        y2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // VelZ - 4 bytes
+        z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        vel = Coordinates<Float>(x: x2, y: y2, z: z2)
+        
+        // index - 1 byte
+        index = array[0]
+        array.removeFirst()
+    }
     
     
     func print() {
