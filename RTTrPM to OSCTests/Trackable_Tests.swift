@@ -114,7 +114,7 @@ extension Trackable_Tests {
     
     
     func testTrackable_type() {
-        XCTAssertEqual(trackable?.type, .trackable)
+        XCTAssertEqual(trackable?.type, .trackedPoint)
     }
     
     

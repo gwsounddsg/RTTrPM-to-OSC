@@ -15,7 +15,7 @@ import Foundation
 protocol Packet {
     var type: RTTrP_PacketModules {get}
     
-//    init(_ array: inout [UInt8]) throws
+    init(_ array: inout [UInt8]) throws
     func print()
 }
 
@@ -28,7 +28,7 @@ enum PacketError: Error {
     case badUInt8Val
     
     enum ByteCountTooSmallToInit: Error {
-        case trackable
+        case trackedPoint
         case trackableWithTimestamp
         case centroidPosition
         case orientationQuaternion
@@ -74,7 +74,7 @@ struct Trackable: Packet {
     
     
     init(_ array: inout [UInt8]) throws {
-        if array.count < 6 {throw PacketError.ByteCountTooSmallToInit.trackable}
+        if array.count < 6 {throw PacketError.ByteCountTooSmallToInit.trackedPoint}
         
         // Type - 1 byte
         type = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
@@ -122,7 +122,7 @@ struct Trackable: Packet {
         array.removeFirst()
         
         switch module {
-        case .trackable, .trackableWithTimestamp:
+        case .trackedPoint, .trackableWithTimestamp:
             return
         case .centroidAccVel:
             centroidAccVelMod = try CentroidAccVelMod(&array)
@@ -211,13 +211,44 @@ struct CentroidMod: Packet {
 
 struct TrackedPointMod: Packet {
     // Packet
-    let type: RTTrP_PacketModules
+    let type: RTTrP_PacketModules = .trackedPoint
     
     // LEDModule
     let size: uint16
     let latency: uint16
     let coor: Coordinates<Double>
     let index: uint8
+    
+    
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 29 {throw PacketError.ByteCountTooSmallToInit.trackedPoint}
+        
+        // size - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // latency - 2 bytes
+        latency = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // x - 8 bytes
+        let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        coor = Coordinates<Double>(x: x, y: y, z: z)
+        
+        // index - 1 byte
+        index = array[0]
+        array.removeFirst()
+    }
     
     
     func print() {
@@ -249,6 +280,37 @@ struct QuatModule: Packet {
     let w: Double
     
     
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 36 {throw PacketError.ByteCountTooSmallToInit.orientationQuaternion}
+        
+        // size - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // latency - 2 bytes
+        latency = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // x - 8 bytes
+        let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        coor = Coordinates<Double>(x: x, y: y, z: z)
+        
+        // w - 8 bytes
+        w = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+    }
+    
+    
     func print() {
         Swift.print("==================Quaternion Module==================")
         
@@ -276,6 +338,35 @@ struct EulerModule: Packet {
     let latency: uint16
     let order: uint16
     let r1, r2, r3: Double
+    
+    
+    init(_ array: inout [UInt8]) throws {
+        if array.count < 30 {throw PacketError.ByteCountTooSmallToInit.orientationEuler}
+        
+        // size - 2 bytes
+        size = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // latency - 2 bytes
+        latency = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // order - 2 bytes
+        order = try integerWithBytes([array[0], array[1]])
+        array.removeSubrange(0...1)
+        
+        // r1 - 8 bytes
+        r1 = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // r2 - 8 bytes
+        r2 = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // r3 - 8 bytes
+        r3 = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+    }
     
     
     func print() {

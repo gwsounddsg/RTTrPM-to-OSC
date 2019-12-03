@@ -13,7 +13,7 @@ import Foundation
 
 
 enum RTTrP_PacketModules: UInt8 {
-    case trackable = 0x01
+    case trackedPoint = 0x01
     case trackableWithTimestamp = 0x51
     case centroidPosition = 0x02
     case orientationQuaternion = 0x03
@@ -38,7 +38,7 @@ struct RTTrPM {
         let module = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
         
         switch module {
-        case .trackable, .trackableWithTimestamp:
+        case .trackedPoint, .trackableWithTimestamp:
             trackable = try Trackable(&array)
         case .unknown:
             logging("Error: UInt8 value: \(array[0])", shiftRight: 2)
