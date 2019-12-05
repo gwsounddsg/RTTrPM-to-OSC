@@ -13,6 +13,14 @@ import CocoaAsyncSocket
 
 
 
+protocol IncomingDelegate {
+    func newPacket(_ data: RTTrP)
+}
+
+
+
+
+
 enum IncomingErrors: Error {
     case INCOMING_CanConvertStringToData
 }
@@ -36,6 +44,8 @@ extension Array where Element == UInt8 {
 class Incoming: NSObject {
     
     var socket: GCDAsyncUdpSocket?
+    var receivedData: RTTrP?
+    var delegate: IncomingDelegate?
     
     
     override init() {
@@ -94,8 +104,8 @@ extension Incoming: GCDAsyncUdpSocketDelegate {
         logging("Delegate did receive data: ")
         
         do {
-            let packet = try RTTrP(data: data.bytes)
-            packet.printHeader()
+            receivedData = try RTTrP(data: data.bytes)
+            if receivedData != nil {delegate?.newPacket(receivedData!)}
         }
         catch {
             logging(error.localizedDescription, shiftRight: 1)

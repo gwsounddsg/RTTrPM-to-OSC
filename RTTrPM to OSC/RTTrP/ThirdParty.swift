@@ -148,6 +148,8 @@ struct Trackable: Packet {
         
         if type == .trackableWithTimestamp {logging("Timestamp: ", shiftRight: 2)}
         
+        centroidAccVelMod?.print()
+        
         logging("==================Trackable Module==================", shiftRight: 2)
     }
 }
@@ -194,15 +196,15 @@ struct CentroidMod: Packet {
     
     
     func print() {
-        Swift.print("==================Centroid Module==================")
+        logging("==================Centroid Module==================")
         
-        Swift.print("Module Size: \(size)")
-        Swift.print("Latency: \(latency)")
-        Swift.print("X Position: \(coor.x)")
-        Swift.print("Y Position: \(coor.y)")
-        Swift.print("Z Position: \(coor.z)")
+        logging("Module Size: \(size)")
+        logging("Latency: \(latency)")
+        logging("X Position: \(coor.x)")
+        logging("Y Position: \(coor.y)")
+        logging("Z Position: \(coor.z)")
         
-        Swift.print("==================Centroid Module==================")
+        logging("==================Centroid Module==================")
     }
 }
 
@@ -253,16 +255,16 @@ struct TrackedPointMod: Packet {
     
     
     func print() {
-        Swift.print("==================LED Module==================")
+        logging("==================LED Module==================")
         
-        Swift.print("Module Size: \(size)")
-        Swift.print("Latency: \(latency)")
-        Swift.print("X Position: \(coor.x)")
-        Swift.print("Y Position: \(coor.y)")
-        Swift.print("Z Position: \(coor.z)")
-        Swift.print("LED Index: \(index)")
+        logging("Module Size: \(size)")
+        logging("Latency: \(latency)")
+        logging("X Position: \(coor.x)")
+        logging("Y Position: \(coor.y)")
+        logging("Z Position: \(coor.z)")
+        logging("LED Index: \(index)")
         
-        Swift.print("==================LED Module==================")
+        logging("==================LED Module==================")
     }
 }
 
@@ -313,16 +315,16 @@ struct QuatModule: Packet {
     
     
     func print() {
-        Swift.print("==================Quaternion Module==================")
+        logging("==================Quaternion Module==================")
         
-        Swift.print("Module Size: \(size)")
-        Swift.print("Latency: \(latency)")
-        Swift.print("Qx: \(coor.x)")
-        Swift.print("Qy: \(coor.y)")
-        Swift.print("Qz: \(coor.z)")
-        Swift.print("Qw: \(w)")
+        logging("Module Size: \(size)")
+        logging("Latency: \(latency)")
+        logging("Qx: \(coor.x)")
+        logging("Qy: \(coor.y)")
+        logging("Qz: \(coor.z)")
+        logging("Qw: \(w)")
         
-        Swift.print("==================Quaternion Module==================")
+        logging("==================Quaternion Module==================")
     }
 }
 
@@ -371,16 +373,16 @@ struct EulerModule: Packet {
     
     
     func print() {
-        Swift.print("==================Euler Module==================")
+        logging("==================Euler Module==================")
         
-        Swift.print("Module Size: \(size)")
-        Swift.print("Latency: \(latency)")
-        Swift.print("Euler Order: \(order)")
-        Swift.print("R1: \(r1)")
-        Swift.print("R2: \(r2)")
-        Swift.print("R3: \(r3)")
+        logging("Module Size: \(size)")
+        logging("Latency: \(latency)")
+        logging("Euler Order: \(order)")
+        logging("R1: \(r1)")
+        logging("R2: \(r2)")
+        logging("R3: \(r3)")
         
-        Swift.print("==================Euler Module==================")
+        logging("==================Euler Module==================")
     }
 }
 
@@ -451,23 +453,23 @@ struct CentroidAccVelMod: Packet {
     
     
     func print() {
-        Swift.print("======Centroid Acceleration/Velocity Module======")
+        logging("======Centroid Acceleration/Velocity Module======", shiftRight: 3)
         
-        Swift.print("Module Size: \(size)")
+        logging("Module Size: \(size)", shiftRight: 3)
         
-        Swift.print("X Position: \(coor.x)")
-        Swift.print("Y Position: \(coor.y)")
-        Swift.print("Z Position: \(coor.z)")
+        logging("X Position: \(coor.x)", shiftRight: 3)
+        logging("Y Position: \(coor.y)", shiftRight: 3)
+        logging("Z Position: \(coor.z)", shiftRight: 3)
         
-        Swift.print("X Velocity: \(vel.x)")
-        Swift.print("Y Velocity: \(vel.y)")
-        Swift.print("Z Velocity: \(vel.z)")
+        logging("X Velocity: \(vel.x)", shiftRight: 3)
+        logging("Y Velocity: \(vel.y)", shiftRight: 3)
+        logging("Z Velocity: \(vel.z)", shiftRight: 3)
         
-        Swift.print("X Acceleration: \(acc.x)")
-        Swift.print("Y Acceleration: \(acc.y)")
-        Swift.print("Z Acceleration: \(acc.z)")
+        logging("X Acceleration: \(acc.x)", shiftRight: 3)
+        logging("Y Acceleration: \(acc.y)", shiftRight: 3)
+        logging("Z Acceleration: \(acc.z)", shiftRight: 3)
         
-        Swift.print("======Centroid Acceleration/Velocity Module======")
+        logging("======Centroid Acceleration/Velocity Module======", shiftRight: 3)
     }
 }
 
@@ -543,22 +545,22 @@ struct TrackedPointAccVelMod: Packet {
     
     
     func print() {
-        Swift.print("========LED Acceleration/Velocity Module========")
+        logging("========LED Acceleration/Velocity Module========")
         
-        Swift.print("Module Size: \(size)")
+        logging("Module Size: \(size)")
         
-        Swift.print("X Position: \(coor.x)")
-        Swift.print("Y Position: \(coor.y)")
-        Swift.print("Z Position: \(coor.z)")
+        logging("X Position: \(coor.x)")
+        logging("Y Position: \(coor.y)")
+        logging("Z Position: \(coor.z)")
         
-        Swift.print("X Velocity: \(vel.x)")
-        Swift.print("Y Velocity: \(vel.y)")
-        Swift.print("Z Velocity: \(vel.z)")
+        logging("X Velocity: \(vel.x)")
+        logging("Y Velocity: \(vel.y)")
+        logging("Z Velocity: \(vel.z)")
         
-        Swift.print("X Acceleration: \(acc.x)")
-        Swift.print("Y Acceleration: \(acc.y)")
-        Swift.print("Z Acceleration: \(acc.z)")
+        logging("X Acceleration: \(acc.x)")
+        logging("Y Acceleration: \(acc.y)")
+        logging("Z Acceleration: \(acc.z)")
         
-        Swift.print("========LED Acceleration/Velocity Module========")
+        logging("========LED Acceleration/Velocity Module========")
     }
 }
