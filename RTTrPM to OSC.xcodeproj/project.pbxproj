@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1BEDDC2376110A00819BFD /* Globals.swift */; };
 		9A1C54422374AEA40033D247 /* RTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C54412374AEA40033D247 /* RTTrP.swift */; };
+		9A2818EC2399932F009B1147 /* OSC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2818EB2399932F009B1147 /* OSC.swift */; };
 		9A5714682388511C00650FC2 /* IncomingRTTrP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5714672388511C00650FC2 /* IncomingRTTrP.swift */; };
 		9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */; };
 		9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6FED2374B55A001213D3 /* ThirdParty.swift */; };
@@ -48,6 +49,7 @@
 		3F3DB73DFD2DBCE548C59CD8 /* Pods-RTTrPM to OSCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTTrPM to OSCTests.debug.xcconfig"; path = "Target Support Files/Pods-RTTrPM to OSCTests/Pods-RTTrPM to OSCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A1BEDDC2376110A00819BFD /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		9A1C54412374AEA40033D247 /* RTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrP.swift; sourceTree = "<group>"; };
+		9A2818EB2399932F009B1147 /* OSC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSC.swift; sourceTree = "<group>"; };
 		9A5714672388511C00650FC2 /* IncomingRTTrP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRTTrP.swift; sourceTree = "<group>"; };
 		9A59306823809A3800261E35 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9A5D6FEA2374B49D001213D3 /* RTTrPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTrPM.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				9A8CE1F923688B4F00FA566F /* ViewController.swift */,
 				9A1BEDDC2376110A00819BFD /* Globals.swift */,
 				9A5714672388511C00650FC2 /* IncomingRTTrP.swift */,
+				9A2818EB2399932F009B1147 /* OSC.swift */,
 				9A5D6FEC2374B524001213D3 /* RTTrP */,
 				9A8CE1FB23688B5000FA566F /* Assets.xcassets */,
 				9A8CE1FD23688B5000FA566F /* Main.storyboard */,
@@ -442,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5D6FEB2374B49D001213D3 /* RTTrPM.swift in Sources */,
+				9A2818EC2399932F009B1147 /* OSC.swift in Sources */,
 				9A5D6FEE2374B55A001213D3 /* ThirdParty.swift in Sources */,
 				9A1BEDDD2376110A00819BFD /* Globals.swift in Sources */,
 				9A5714682388511C00650FC2 /* IncomingRTTrP.swift in Sources */,

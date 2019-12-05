@@ -8,10 +8,15 @@
 
 import Cocoa
 
+
+
+
+
 class ViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     var incoming: Incoming?
+    var osc: OSC?
     
     var localData: RTTrP? {
         didSet {
@@ -24,6 +29,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         incoming = Incoming()
+        osc = OSC("localhost", 8080)
         
         incoming?.delegate = self
         tableView.delegate = self
@@ -51,6 +57,12 @@ class ViewController: NSViewController {
     @IBAction func query(_ sender: Any) {
         logging("Local address: \(incoming!.localAddress())")
         logging("Local port: \(incoming!.localPort())")
+    }
+    
+    
+    @IBAction func sendOSC(_ sender: Any) {
+        let data = DS100Data("1", x: 2.5, y: 88)
+        osc?.sendMessage(data)
     }
     
     
