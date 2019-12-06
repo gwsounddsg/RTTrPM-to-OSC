@@ -12,6 +12,14 @@ import Foundation
 
 
 
+enum RTTrPM_Error: Error {
+    case badModuleType(_ type: RTTrP_PacketModules)
+}
+
+
+
+
+
 enum RTTrP_PacketModules: UInt8 {
     case trackedPoint = 0x01
     case trackableWithTimestamp = 0x51
@@ -40,11 +48,8 @@ struct RTTrPM {
         switch module {
         case .trackedPoint, .trackableWithTimestamp:
             trackable = try Trackable(&array)
-        case .unknown:
-            logging("Error: UInt8 value: \(array[0])", shiftRight: 2)
-            fallthrough
         default:
-            return
+            throw RTTrPM_Error.badModuleType(module)
         }
     }
 }

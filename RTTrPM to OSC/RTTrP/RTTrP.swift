@@ -139,19 +139,15 @@ struct RTTrP {
 extension RTTrP {
     
     mutating func populatePM(_ array: inout [UInt8]) {
-        var counter = array.count
-        
         while array.count > 0 {
             do {
                 let newPM = try RTTrPM(&array)
                 pmPackets.append(newPM)
-                counter = array.count
             }
             catch {
                 logging(error.localizedDescription, shiftRight: 1)
+                break
             }
-            
-            if array.count == 0 || array.count == counter {break}
         }
     }
     

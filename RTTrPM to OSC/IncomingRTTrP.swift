@@ -104,7 +104,6 @@ extension Incoming: GCDAsyncUdpSocketDelegate {
             receivedData = try RTTrP(data: data.bytes)
             if receivedData != nil {
                 delegate?.newPacket(receivedData!)
-                receivedData!.printHeader()
             }
         }
         catch {

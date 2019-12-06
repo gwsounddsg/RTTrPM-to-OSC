@@ -70,7 +70,7 @@ class ViewController: NSViewController {
         if incoming == nil {return}
         
         do {
-            localData = try RTTrP(data: packetEG)
+            localData = try RTTrP(data: packetEG1)
             tableView.reloadData()
         }
         catch {
@@ -118,6 +118,7 @@ extension ViewController: NSTableViewDelegate {
         guard let packet = localData else {
             return nil
         }
+        if row >= packet.pmPackets.count {return nil}
         
         var cellID = NSUserInterfaceItemIdentifier("")
         var text = ""

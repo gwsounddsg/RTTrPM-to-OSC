@@ -91,12 +91,23 @@ struct Trackable: Packet {
 //TODO: check size of data before continuing
         
         // Name - UTF8
-        let nameRange = 0..<Int(nameLength)
-        guard let str = String(bytes: array[nameRange], encoding: .utf8) else {
-            throw PacketError.cannotCreateStringForName
+        if nameLength == 1 {
+            let nameData = Data(array[0...0])
+            guard let str = String(bytes: nameData, encoding: .utf8) else {
+                throw PacketError.cannotCreateStringForName
+            }
+            name = str
+            array.removeFirst()
         }
-        name = str
-        array.removeSubrange(nameRange)
+        else {
+            let nameRange = 0..<Int(nameLength - 1)
+            guard let str = String(bytes: array[nameRange], encoding: .utf8) else {
+                throw PacketError.cannotCreateStringForName
+            }
+            name = str
+            array.removeSubrange(nameRange)
+        }
+        
         
         // Timestamp - 4 bytes
         if type == .trackableWithTimestamp {
@@ -120,14 +131,15 @@ struct Trackable: Packet {
         if array.isEmpty {return}
         
         let module = RTTrP_PacketModules(rawValue: array[0]) ?? .unknown
-        array.removeFirst()
         
         switch module {
         case .trackedPoint, .trackableWithTimestamp:
             return
         case .centroidAccVel:
+            array.removeFirst()
             centroidAccVelMod = try CentroidAccVelMod(&array)
         case .trackedPointAccVel:
+            array.removeFirst()
             trackedPointAccVelMods.append(try TrackedPointAccVelMod(&array))
         default:
             logging("Error: UInt8 value: \(array[0])", shiftRight: 2)
