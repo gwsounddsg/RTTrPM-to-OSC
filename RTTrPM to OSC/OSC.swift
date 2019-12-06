@@ -14,13 +14,19 @@ import SwiftOSC
 
 struct DS100Data {
     let mapping: String
+    let input: Int
     let x: Double
     let y: Double
     
-    init(_ mapping: String, x: Double, y: Double) {
+    init(_ mapping: String, input: Int, x: Double, y: Double) {
         self.mapping = mapping
+        self.input = input
         self.x = x
         self.y = y
+    }
+    
+    func addy() -> String {
+        return "\(mapping)/\(input)"
     }
 }
 
@@ -40,7 +46,7 @@ class OSC {
     
     
     func sendMessage(_ data: DS100Data) {
-        let destination = address + data.mapping
+        let destination = address + data.addy()
         let message = OSCMessage(OSCAddressPattern(destination), data.x, data.y)
         client.send(message)
     }

@@ -148,9 +148,14 @@ struct Trackable: Packet {
         
         if type == .trackableWithTimestamp {logging("Timestamp: ", shiftRight: 2)}
         
+        centroidMod?.print()
+        for each in trackedPointMods {each.print()}
+        quatModule?.print()
+        eulerModule?.print()
         centroidAccVelMod?.print()
+        for each in trackedPointAccVelMods {each.print()}
         
-        logging("==================Trackable Module==================", shiftRight: 2)
+        logging("================================", shiftRight: 2)
     }
 }
 
@@ -183,12 +188,12 @@ struct CentroidMod: Packet {
         let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // Y - 8 bytes
-        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        // z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // Z - 8 bytes
-        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
         coor = Coordinates<Double>(x: x, y: y, z: z)
@@ -196,15 +201,15 @@ struct CentroidMod: Packet {
     
     
     func print() {
-        logging("==================Centroid Module==================")
+        logging("==================Centroid Module==================", shiftRight: 3)
         
-        logging("Module Size: \(size)")
-        logging("Latency: \(latency)")
-        logging("X Position: \(coor.x)")
-        logging("Y Position: \(coor.y)")
-        logging("Z Position: \(coor.z)")
+        logging("Module Size: \(size)", shiftRight: 3)
+        logging("Latency: \(latency)", shiftRight: 3)
+        logging("X Position: \(coor.x.roundTo(2))", shiftRight: 3)
+        logging("Y Position: \(coor.y.roundTo(2))", shiftRight: 3)
+        logging("Z Position: \(coor.z.roundTo(2))", shiftRight: 3)
         
-        logging("==================Centroid Module==================")
+        logging("================================", shiftRight: 3)
     }
 }
 
@@ -238,12 +243,12 @@ struct TrackedPointMod: Packet {
         let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // y - 8 bytes
-        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
-        array.removeSubrange(0...7)
-        
         // z - 8 bytes
         let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
         coor = Coordinates<Double>(x: x, y: y, z: z)
@@ -255,16 +260,16 @@ struct TrackedPointMod: Packet {
     
     
     func print() {
-        logging("==================LED Module==================")
+        logging("==================TrackedPoint Module==================", shiftRight: 3)
         
-        logging("Module Size: \(size)")
-        logging("Latency: \(latency)")
-        logging("X Position: \(coor.x)")
-        logging("Y Position: \(coor.y)")
-        logging("Z Position: \(coor.z)")
-        logging("LED Index: \(index)")
+        logging("Module Size: \(size)", shiftRight: 3)
+        logging("Latency: \(latency)", shiftRight: 3)
+        logging("X Position: \(coor.x.roundTo(2))", shiftRight: 3)
+        logging("Y Position: \(coor.y.roundTo(2))", shiftRight: 3)
+        logging("Z Position: \(coor.z.roundTo(2))", shiftRight: 3)
+        logging("LED Index: \(index)", shiftRight: 3)
         
-        logging("==================LED Module==================")
+        logging("================================", shiftRight: 3)
     }
 }
 
@@ -298,12 +303,12 @@ struct QuatModule: Packet {
         let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // y - 8 bytes
-        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
-        array.removeSubrange(0...7)
-        
         // z - 8 bytes
         let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        array.removeSubrange(0...7)
+        
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
         coor = Coordinates<Double>(x: x, y: y, z: z)
@@ -315,16 +320,16 @@ struct QuatModule: Packet {
     
     
     func print() {
-        logging("==================Quaternion Module==================")
+        logging("==================Quaternion Module==================", shiftRight: 3)
         
-        logging("Module Size: \(size)")
-        logging("Latency: \(latency)")
-        logging("Qx: \(coor.x)")
-        logging("Qy: \(coor.y)")
-        logging("Qz: \(coor.z)")
-        logging("Qw: \(w)")
+        logging("Module Size: \(size)", shiftRight: 3)
+        logging("Latency: \(latency)", shiftRight: 3)
+        logging("Qx: \(coor.x.roundTo(2))", shiftRight: 3)
+        logging("Qy: \(coor.y.roundTo(2))", shiftRight: 3)
+        logging("Qz: \(coor.z.roundTo(2))", shiftRight: 3)
+        logging("Qw: \(w.roundTo(2))", shiftRight: 3)
         
-        logging("==================Quaternion Module==================")
+        logging("================================", shiftRight: 3)
     }
 }
 
@@ -373,16 +378,16 @@ struct EulerModule: Packet {
     
     
     func print() {
-        logging("==================Euler Module==================")
+        logging("==================Euler Module==================", shiftRight: 3)
         
-        logging("Module Size: \(size)")
-        logging("Latency: \(latency)")
-        logging("Euler Order: \(order)")
-        logging("R1: \(r1)")
-        logging("R2: \(r2)")
-        logging("R3: \(r3)")
+        logging("Module Size: \(size)", shiftRight: 3)
+        logging("Latency: \(latency)", shiftRight: 3)
+        logging("Euler Order: \(order)", shiftRight: 3)
+        logging("R1: \(r1.roundTo(2))", shiftRight: 3)
+        logging("R2: \(r2.roundTo(2))", shiftRight: 3)
+        logging("R3: \(r3.roundTo(2))", shiftRight: 3)
         
-        logging("==================Euler Module==================")
+        logging("================================", shiftRight: 3)
     }
 }
 
@@ -412,12 +417,12 @@ struct CentroidAccVelMod: Packet {
         let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // Y - 8 bytes
-        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        // z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // Z - 8 bytes
-        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
         coor = Coordinates<Double>(x: x, y: y, z: z)
@@ -426,12 +431,12 @@ struct CentroidAccVelMod: Packet {
         var x2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
-        // AccY - 4 bytes
-        var y2 = try Float([array[0], array[1], array[2], array[3]])
-        array.removeSubrange(0...3)
-        
         // AccZ - 4 bytes
         var z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // AccY - 4 bytes
+        var y2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
         acc = Coordinates<Float>(x: x2, y: y2, z: z2)
@@ -440,12 +445,12 @@ struct CentroidAccVelMod: Packet {
         x2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
-        // VelY - 4 bytes
-        y2 = try Float([array[0], array[1], array[2], array[3]])
-        array.removeSubrange(0...3)
-        
         // VelZ - 4 bytes
         z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // VelY - 4 bytes
+        y2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
         vel = Coordinates<Float>(x: x2, y: y2, z: z2)
@@ -457,19 +462,19 @@ struct CentroidAccVelMod: Packet {
         
         logging("Module Size: \(size)", shiftRight: 3)
         
-        logging("X Position: \(coor.x)", shiftRight: 3)
-        logging("Y Position: \(coor.y)", shiftRight: 3)
-        logging("Z Position: \(coor.z)", shiftRight: 3)
+        logging("X Position: \(coor.x.roundTo(2))", shiftRight: 3)
+        logging("Y Position: \(coor.y.roundTo(2))", shiftRight: 3)
+        logging("Z Position: \(coor.z.roundTo(2))", shiftRight: 3)
         
-        logging("X Velocity: \(vel.x)", shiftRight: 3)
-        logging("Y Velocity: \(vel.y)", shiftRight: 3)
-        logging("Z Velocity: \(vel.z)", shiftRight: 3)
+        logging("X Velocity: \(vel.x.roundTo(2))", shiftRight: 3)
+        logging("Y Velocity: \(vel.y.roundTo(2))", shiftRight: 3)
+        logging("Z Velocity: \(vel.z.roundTo(2))", shiftRight: 3)
         
-        logging("X Acceleration: \(acc.x)", shiftRight: 3)
-        logging("Y Acceleration: \(acc.y)", shiftRight: 3)
-        logging("Z Acceleration: \(acc.z)", shiftRight: 3)
+        logging("X Acceleration: \(acc.x.roundTo(2))", shiftRight: 3)
+        logging("Y Acceleration: \(acc.y.roundTo(2))", shiftRight: 3)
+        logging("Z Acceleration: \(acc.z.roundTo(2))", shiftRight: 3)
         
-        logging("======Centroid Acceleration/Velocity Module======", shiftRight: 3)
+        logging("================================", shiftRight: 3)
     }
 }
 
@@ -500,12 +505,12 @@ struct TrackedPointAccVelMod: Packet {
         let x = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // Y - 8 bytes
-        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        // z - 8 bytes
+        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
-        // Z - 8 bytes
-        let z = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
+        // y - 8 bytes
+        let y = try Double([array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7]])
         array.removeSubrange(0...7)
         
         coor = Coordinates<Double>(x: x, y: y, z: z)
@@ -514,12 +519,12 @@ struct TrackedPointAccVelMod: Packet {
         var x2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
-        // AccY - 4 bytes
-        var y2 = try Float([array[0], array[1], array[2], array[3]])
-        array.removeSubrange(0...3)
-        
         // AccZ - 4 bytes
         var z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // AccY - 4 bytes
+        var y2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
         acc = Coordinates<Float>(x: x2, y: y2, z: z2)
@@ -528,12 +533,12 @@ struct TrackedPointAccVelMod: Packet {
         x2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
-        // VelY - 4 bytes
-        y2 = try Float([array[0], array[1], array[2], array[3]])
-        array.removeSubrange(0...3)
-        
         // VelZ - 4 bytes
         z2 = try Float([array[0], array[1], array[2], array[3]])
+        array.removeSubrange(0...3)
+        
+        // VelY - 4 bytes
+        y2 = try Float([array[0], array[1], array[2], array[3]])
         array.removeSubrange(0...3)
         
         vel = Coordinates<Float>(x: x2, y: y2, z: z2)
@@ -545,22 +550,22 @@ struct TrackedPointAccVelMod: Packet {
     
     
     func print() {
-        logging("========LED Acceleration/Velocity Module========")
+        logging("========TrackedPoint Acceleration/Velocity Module========", shiftRight: 3)
         
-        logging("Module Size: \(size)")
+        logging("Module Size: \(size)", shiftRight: 3)
         
-        logging("X Position: \(coor.x)")
-        logging("Y Position: \(coor.y)")
-        logging("Z Position: \(coor.z)")
+        logging("X Position: \(coor.x.roundTo(2))", shiftRight: 3)
+        logging("Y Position: \(coor.y.roundTo(2))", shiftRight: 3)
+        logging("Z Position: \(coor.z.roundTo(2))", shiftRight: 3)
         
-        logging("X Velocity: \(vel.x)")
-        logging("Y Velocity: \(vel.y)")
-        logging("Z Velocity: \(vel.z)")
+        logging("X Velocity: \(vel.x.roundTo(2))", shiftRight: 3)
+        logging("Y Velocity: \(vel.y.roundTo(2))", shiftRight: 3)
+        logging("Z Velocity: \(vel.z.roundTo(2))", shiftRight: 3)
         
-        logging("X Acceleration: \(acc.x)")
-        logging("Y Acceleration: \(acc.y)")
-        logging("Z Acceleration: \(acc.z)")
+        logging("X Acceleration: \(acc.x.roundTo(2))", shiftRight: 3)
+        logging("Y Acceleration: \(acc.y.roundTo(2))", shiftRight: 3)
+        logging("Z Acceleration: \(acc.z.roundTo(2))", shiftRight: 3)
         
-        logging("========LED Acceleration/Velocity Module========")
+        logging("================================", shiftRight: 3)
     }
 }

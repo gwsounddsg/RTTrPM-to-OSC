@@ -100,12 +100,12 @@ extension Incoming: GCDAsyncUdpSocketDelegate {
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?)
     {
-        
-        logging("Delegate did receive data: ")
-        
         do {
             receivedData = try RTTrP(data: data.bytes)
-            if receivedData != nil {delegate?.newPacket(receivedData!)}
+            if receivedData != nil {
+                delegate?.newPacket(receivedData!)
+                receivedData!.printHeader()
+            }
         }
         catch {
             logging(error.localizedDescription, shiftRight: 1)

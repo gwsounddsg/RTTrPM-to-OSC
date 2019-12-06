@@ -168,13 +168,13 @@ extension Trackable_Tests {
     
     func testTrackableCentroidAccVel_y() {
         if centroidAccVel() == nil {return}
-        XCTAssertEqual(centroidAccVel()?.coor.y, 0.0)
+        XCTAssertEqual(centroidAccVel()!.coor.y, 2.064, accuracy: 0.001)
     }
     
     
     func testTrackableCentroidAccVel_z() {
         if centroidAccVel() == nil {return}
-        XCTAssertEqual(centroidAccVel()!.coor.z, 2.064, accuracy: 0.001)
+        XCTAssertEqual(centroidAccVel()?.coor.z, 0.0)
     }
     
     
@@ -186,13 +186,13 @@ extension Trackable_Tests {
     
     func testTrackableCentroidAccVel_accy() {
         if centroidAccVel() == nil {return}
-        XCTAssertEqual(centroidAccVel()?.acc.y, 0.0)
+        XCTAssertEqual(centroidAccVel()!.acc.y, -53.164, accuracy: 0.001)
     }
     
     
     func testTrackableCentroidAccVel_accz() {
         if centroidAccVel() == nil {return}
-        XCTAssertEqual(centroidAccVel()!.acc.z, -53.164, accuracy: 0.001)
+        XCTAssertEqual(centroidAccVel()?.acc.z, 0.0)
     }
     
     
@@ -204,13 +204,13 @@ extension Trackable_Tests {
     
     func testTrackableCentroidAccVel_vely() {
         if centroidAccVel() == nil {return}
-        XCTAssertEqual(centroidAccVel()?.vel.y, 0.0)
+        XCTAssertEqual(centroidAccVel()!.vel.y, -35.083, accuracy: 0.001)
     }
     
     
     func testTrackableCentroidAccVel_velz() {
         if centroidAccVel() == nil {return}
-        XCTAssertEqual(centroidAccVel()!.vel.z, -35.083, accuracy: 0.001)
+        XCTAssertEqual(centroidAccVel()?.vel.z, 0.0)
     }
 }
 
@@ -255,26 +255,26 @@ extension Trackable_Tests {
     
     func testTrackableTrackedPointAccVel_y() {
         if trackedPointAccVel(0) != nil {
-            XCTAssertEqual(trackedPointAccVel(0)!.coor.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(0)!.coor.y, 2.064, accuracy: 0.001)
         }
         if trackedPointAccVel(1) != nil {
-            XCTAssertEqual(trackedPointAccVel(1)!.coor.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(1)!.coor.y, 2.064, accuracy: 0.001)
         }
         if trackedPointAccVel(2) != nil {
-            XCTAssertEqual(trackedPointAccVel(2)!.coor.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(2)!.coor.y, 2.064, accuracy: 0.001)
         }
     }
     
     
     func testTrackableTrackedPointAccVel_z() {
         if trackedPointAccVel(0) != nil {
-            XCTAssertEqual(trackedPointAccVel(0)!.coor.z, 2.064, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(0)!.coor.z, 0.0)
         }
         if trackedPointAccVel(1) != nil {
-            XCTAssertEqual(trackedPointAccVel(1)!.coor.z, 2.064, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(1)!.coor.z, 0.0)
         }
         if trackedPointAccVel(2) != nil {
-            XCTAssertEqual(trackedPointAccVel(2)!.coor.z, 2.064, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(2)!.coor.z, 0.0)
         }
     }
     
@@ -294,26 +294,26 @@ extension Trackable_Tests {
     
     func testTrackableTrackedPointAccVel_accy() {
         if trackedPointAccVel(0) != nil {
-            XCTAssertEqual(trackedPointAccVel(0)!.acc.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(0)!.acc.y, -53.164, accuracy: 0.001)
         }
         if trackedPointAccVel(1) != nil {
-            XCTAssertEqual(trackedPointAccVel(1)!.acc.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(1)!.acc.y, -53.164, accuracy: 0.001)
         }
         if trackedPointAccVel(2) != nil {
-            XCTAssertEqual(trackedPointAccVel(2)!.acc.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(2)!.acc.y, -53.164, accuracy: 0.001)
         }
     }
     
     
     func testTrackableTrackedPointAccVel_accz() {
         if trackedPointAccVel(0) != nil {
-            XCTAssertEqual(trackedPointAccVel(0)!.acc.z, -53.164, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(0)!.acc.z, 0.0)
         }
         if trackedPointAccVel(1) != nil {
-            XCTAssertEqual(trackedPointAccVel(1)!.acc.z, -53.164, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(1)!.acc.z, 0.0)
         }
         if trackedPointAccVel(2) != nil {
-            XCTAssertEqual(trackedPointAccVel(2)!.acc.z, -53.164, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(2)!.acc.z, 0.0)
         }
     }
     
@@ -333,26 +333,26 @@ extension Trackable_Tests {
     
     func testTrackableTrackedPointAccVel_vely() {
         if trackedPointAccVel(0) != nil {
-            XCTAssertEqual(trackedPointAccVel(0)!.vel.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(0)!.vel.y, -35.083, accuracy: 0.001)
         }
         if trackedPointAccVel(1) != nil {
-            XCTAssertEqual(trackedPointAccVel(1)!.vel.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(1)!.vel.y, -35.083, accuracy: 0.001)
         }
         if trackedPointAccVel(2) != nil {
-            XCTAssertEqual(trackedPointAccVel(2)!.vel.y, 0.0)
+            XCTAssertEqual(trackedPointAccVel(2)!.vel.y, -35.083, accuracy: 0.001)
         }
     }
     
     
     func testTrackableTrackedPointAccVel_velz() {
         if trackedPointAccVel(0) != nil {
-            XCTAssertEqual(trackedPointAccVel(0)!.vel.z, -35.083, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(0)!.vel.z, 0.0)
         }
         if trackedPointAccVel(1) != nil {
-            XCTAssertEqual(trackedPointAccVel(1)!.vel.z, -35.083, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(1)!.vel.z, 0.0)
         }
         if trackedPointAccVel(2) != nil {
-            XCTAssertEqual(trackedPointAccVel(2)!.vel.z, -35.083, accuracy: 0.001)
+            XCTAssertEqual(trackedPointAccVel(2)!.vel.z, 0.0)
         }
     }
 }
