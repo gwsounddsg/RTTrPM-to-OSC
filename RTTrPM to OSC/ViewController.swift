@@ -58,25 +58,6 @@ class ViewController: NSViewController {
         logging("Local address: \(incoming!.localAddress())")
         logging("Local port: \(incoming!.localPort())")
     }
-    
-    
-    @IBAction func sendOSC(_ sender: Any) {
-        let data = DS100Data("1", input: 0, x: 2.5, y: 88)
-        osc?.sendMessage(data)
-    }
-    
-    
-    @IBAction func genPacket(_ sender: Any) {
-        if incoming == nil {return}
-        
-        do {
-            localData = try RTTrP(data: packetEG1)
-            tableView.reloadData()
-        }
-        catch {
-            logging("Error generating packet: \(error)")
-        }
-    }
 }
 
 
@@ -195,17 +176,18 @@ extension ViewController: IncomingDelegate {
     
     func newPacket(_ data: RTTrP) {
         localData = data
-        
+        retransmitData(data)
     }
     
     
     func retransmitData(_ data: RTTrP) {
-        var messages: [DS100Data] = []
+        var ds100Data: [DS100Data] = []
         
         for pm in data.pmPackets {
             guard let trackable = pm.trackable else {break}
-//            messages.append(DS100Data("1", input: trackable.name, x: trackable.centroidAccVelMod!.coor.x, y: trackable.centroidAccVelMod!.coor.y))
-            
+            ds100Data.append(DS100Data("1", input: trackable.name, x: trackable.centroidAccVelMod!.coor.x, y: trackable.centroidAccVelMod!.coor.y))
         }
+        
+        osc?.sendMessage(ds100Data)
     }
 }

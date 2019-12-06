@@ -14,11 +14,11 @@ import SwiftOSC
 
 struct DS100Data {
     let mapping: String
-    let input: Int
+    let input: String
     let x: Double
     let y: Double
     
-    init(_ mapping: String, input: Int, x: Double, y: Double) {
+    init(_ mapping: String, input: String, x: Double, y: Double) {
         self.mapping = mapping
         self.input = input
         self.x = x
@@ -45,9 +45,17 @@ class OSC {
     }
     
     
-    func sendMessage(_ data: DS100Data) {
-        let destination = address + data.addy()
-        let message = OSCMessage(OSCAddressPattern(destination), data.x, data.y)
-        client.send(message)
+    func sendMessage(_ data: [DS100Data]) {
+        let bundle = OSCBundle()
+        
+        for each in data {
+            let destination = address + each.addy()
+            bundle.add(OSCMessage(OSCAddressPattern(destination), each.x, each.y))
+        }
+        
+        client.send(bundle)
     }
+    
+    
+    
 }
